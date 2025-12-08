@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Legend Agro Farm</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { font-family:'Roboto',sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; }
+header { background:#2c5e1a; color:white; text-align:center; padding:20px; }
+header h1 { margin:0; font-size:28px; }
+.contact-section { max-width:900px; margin:20px auto; padding:0 20px; }
+.contact-section h2 { color:#156b2c; font-size:24px; margin-bottom:10px; }
+.contact-section p { font-size:16px; margin-bottom:15px; }
+.contact-info { background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-bottom:30px; }
+.contact-info a { color:#156b2c; text-decoration:none; font-weight:bold; }
+.contact-form { background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+.contact-form input, .contact-form textarea { width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:5px; font-size:16px; }
+.contact-form button { background:#4CAF50; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition:0.3s; }
+.contact-form button:hover { background:#388E3C; }
+.social-links a { margin-right:15px; font-size:20px; color:#156b2c; text-decoration:none; }
+footer { background:#2c5e1a; color:white; text-align:center; padding:20px; font-size:14px; border-top:3px solid #4CAF50; }
+#scrollUp { position:fixed; bottom:70px; right:20px; background:#4CAF50; color:white; border:none; padding:12px 15px; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,0.3); display:none; z-index:1000; }
+@media(max-width:768px){ .social-links a{margin-right:10px;} }
+</style>
+</head>
+<body>
+
+<header>
+<h1>CONTACT LEGEND AGRO FARM</h1>
+</header>
+
+<div class="contact-section">
+
+<h2>Get In Touch</h2>
+<p>We’re here to help farmers nationwide. Reach out for inquiries, product orders, or farm consultancy. Our team is committed to providing professional guidance and quality planting materials to ensure your farm succeeds.</p>
+
+<div class="contact-info">
+<p>📞 Phone: <a href="tel:08153673415">081 5367 3415</a></p>
+<p>💬 WhatsApp: <a href="https://wa.me/2348153673415">Message us</a></p>
+<p>✉️ Email: <a href="mailto:ayotundesamuel317@gmail.com">ayotundesamuel317@gmail.com</a></p>
+<p>🌐 Follow us on social media:</p>
+<div class="social-links">
+<a href="https://www.facebook.com/profile.php?id=61578922808940&mibextid=ZbWKwL" target="_blank">Facebook</a>
+<a href="https://youtube.com/@legendagrofarm?si=O8nowKQ9mHDewav2" target="_blank">YouTube</a>
+<a href="https://www.instagram.com/legendagrofarm?igsh=dDliNXdwNWxiYnBu" target="_blank">Instagram</a>
+<a href="https://www.tiktok.com/@legend.agrofarm" target="_blank">TikTok</a>
+</div>
+</div>
+
+<h2>Send Us a Message</h2>
+<div class="contact-form">
+<form action="mailto:ayotundesamuel317@gmail.com" method="post" enctype="text/plain">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+
+</div>
+
+<footer>
+© 2025 Legend Agro Farm. Committed to supplying high-quality planting materials and professional farm services nationwide.
+</footer>
+
+<button id="scrollUp" onclick="scrollTop()">↑</button>
+
+<script>
+window.onscroll = function(){ document.getElementById('scrollUp').style.display = (document.body.scrollTop>200||document.documentElement.scrollTop>200)?'block':'none'; };
+function scrollTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legend Agro Farm | Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Roboto',sans-serif;background:#f5f7fa;color:#333;}
+header{background:#2c5e1a;color:white;padding:20px;text-align:center;}
+header h1{margin:0;font-size:28px;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px;max-width:1200px;margin:auto;}
+.gallery-item{background:white;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);padding:10px;text-align:center;transition:0.3s;}
+.gallery-item img{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:8px;cursor:pointer;transition:0.3s;}
+.gallery-item img:hover{transform:scale(1.05);box-shadow:0 6px 15px rgba(0,0,0,0.2);}
+.gallery-item .caption{font-weight:600;color:#156b2c;margin-bottom:6px;}
+.business-desc{text-align:center;max-width:900px;margin:20px auto;font-size:16px;line-height:1.6;color:#333;padding:0 20px;}
+footer{background:#2c5e1a;color:white;padding:20px;text-align:center;font-size:14px;line-height:1.6;margin-top:30px;border-top:3px solid #4CAF50;}
+#scrollUp{position:fixed;bottom:70px;right:20px;background:#4CAF50;color:white;border:none;padding:12px 15px;border-radius:50%;font-size:20px;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,0.3);display:none;z-index:1000;}
+/* Lightbox */
+.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:10000;}
+.lightbox img{max-width:90%;max-height:90%;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.5);}
+.lightbox:target{display:flex;}
+@media(max-width:768px){.gallery-item img{height:200px;}}
+@media(max-width:480px){.gallery-item img{height:180px;}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>LEGEND AGRO FARM GALLERY</h1>
+</header>
+
+<div class="business-desc">
+Explore our high-quality planting materials with detailed images. Each product has multiple views to show seedlings, plantation quality, and harvested results. We are committed to providing farmers with reliable products and excellent farm solutions nationwide.
+</div>
+
+<div class="gallery-grid" id="gallery-grid">
+  <!-- Gallery items generated dynamically -->
+</div>
+
+<footer>
+Legend Agro Farm | Call: 081 5367 3415 | WhatsApp: <a href="https://wa.me/2348153673415" style="color:white;">Chat</a> | Email: ayotundesamuel317@gmail.com
+</footer>
+
+<button id="scrollUp" onclick="scrollTop()">↑</button>
+
+<script>
+// Scroll Up Button
+window.onscroll=function(){document.getElementById('scrollUp').style.display=(document.body.scrollTop>200||document.documentElement.scrollTop>200)?'block':'none';};
+function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
+
+// Product Images Data
+const products = {
+  "Hybrid Coconut Seedlings (MYD × WAT)": ["coconut1.JPG","coconut2.JPG","coconut3.JPG","coconut4.JPG"],
+  "Oil Palm Seedlings (Tenera)": ["oilpalm1.JPG","oilpalm2.JPG","oilpalm3.JPG","oilpalm4.JPG"],
+  "Cocoa Nursery Plants (CCN-51)": ["cocoa1.JPG","cocoa2.JPG","cocoa3.JPG","cocoa4.JPG"],
+  "Hybrid Elephant Giant Plantain Suckers": ["plantain1.JPG","plantain2.JPG","plantain3.JPG","plantain4.JPG"],
+  "Hybrid Dwarf Banana Suckers": ["banana1.JPG","banana2.JPG","banana3.JPG","banana4.JPG"],
+  "Improved Cassava Stems (TME 419)": ["cassava1.JPG","cassava2.JPG","cassava3.JPG","cassava4.JPG"],
+  "Pineapple Suckers": ["pineapple1.JPG","pineapple2.JPG","pineapple3.JPG","pineapple4.JPG"],
+  "Treated Yam Setts": ["yam1.JPG","yam2.JPG","yam3.JPG","yam4.JPG"]
+};
+
+const galleryGrid=document.getElementById('gallery-grid');
+
+for(const title in products){
+  products[title].forEach((img,index)=>{
+    const imgId=`${title.replace(/\s+/g,'')}${index+1}`;
+    // Gallery Item
+    const div=document.createElement('div');div.className='gallery-item';
+    const a=document.createElement('a');a.href=`#${imgId}`;
+    const imgTag=document.createElement('img');imgTag.src='images/'+img;imgTag.alt=title;a.appendChild(imgTag);
+    div.appendChild(a);
+    const caption=document.createElement('div');caption.className='caption';caption.textContent=title;
+    div.appendChild(caption);
+    galleryGrid.appendChild(div);
+
+    // Lightbox
+    const lb=document.createElement('div');lb.className='lightbox';lb.id=imgId;
+    const lbImg=document.createElement('img');lbImg.src='images/'+img;lbImg.alt=title;
+    lb.appendChild(lbImg);document.body.appendChild(lb);
+  });
+});
+</script>
+
+</body>
+</html>

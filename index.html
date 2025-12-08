@@ -3,92 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Legend Agro Farm | Quality Seedlings & Agro Solutions</title>
+<title>Legend Agro Farm</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
-body{margin:0;font-family:'Roboto',sans-serif;background:#f5f7fa;color:#333;}
-header{background:#2c5e1a;color:white;padding:20px;text-align:center;}
-header h1{margin:0;font-size:28px;}
-nav{background:#4CAF50;display:flex;justify-content:center;flex-wrap:wrap;}
-nav a{color:white;text-decoration:none;padding:14px 20px;font-weight:600;}
-nav a:hover{background:#388E3C;border-radius:5px;}
-.hero{background:#e8f5e9;text-align:center;padding:50px 20px;}
-.hero h2{color:#2c5e1a;font-size:32px;margin-bottom:10px;}
-.hero p{max-width:700px;margin:auto;font-size:17px;line-height:1.7;}
-.section{padding:40px 20px;max-width:1000px;margin:auto;}
-.section h2{color:#156b2c;font-size:28px;text-align:center;margin-bottom:20px;}
-.product-list ul{list-style-type:disc;padding-left:20px;line-height:1.8;font-size:16px;}
-.contact-box{background:white;padding:20px;border-left:5px solid #4CAF50;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);max-width:700px;margin:auto;}
-.contact-box a{color:#156b2c;font-weight:600;text-decoration:none;}
-.contact-box a:hover{text-decoration:underline;}
-.socials{text-align:center;margin:20px 0;}
-.socials a{margin:0 10px;color:#2c5e1a;font-weight:600;text-decoration:none;}
-.socials a:hover{text-decoration:underline;}
-footer{background:#2c5e1a;color:white;text-align:center;padding:20px;margin-top:30px;font-size:14px;}
-.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.3);z-index:1000;}
+body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa; }
+header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+header .logo { display:flex; align-items:center; gap:12px;}
+header .logo img { height:50px; width:auto; }
+header .logo .brand-title { font-weight:700; font-size:18px; color:#2c5e1a; letter-spacing:1px; text-align:center; }
+nav { text-align:center; margin:15px 0; }
+nav a { margin:0 12px; text-decoration:none; color:#2c5e1a; font-weight:500; transition:0.3s; }
+nav a:hover, nav a.active { color:#4CAF50; }
+.hero { text-align:center; padding:50px 20px; background:#e8f5e9; }
+.hero h1 { font-size:36px; color:#2c5e1a; margin-bottom:15px; }
+.hero p { font-size:18px; color:#333; max-width:800px; margin:auto; line-height:1.6; }
+footer { background:#2c5e1a; color:white; padding:20px 15px; text-align:center; font-size:14px; line-height:1.6; margin-top:30px; border-top:3px solid #4CAF50; }
+#scrollUp { position:fixed; bottom:70px; right:20px; background:#4CAF50; color:white; border:none; padding:12px 15px; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,0.3); display:none; z-index:1000; }
 </style>
 </head>
-
 <body>
 
 <header>
-    <h1>LEGEND AGRO FARM</h1>
+  <div class="logo">
+    <img src="images/logo.PNG" alt="Legend Agro Farm">
+    <div class="brand-title">LEGEND AGRO FARM</div>
+  </div>
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+  <a href="index.html" class="active">Home</a>
+  <a href="products.html">Products</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="testimonials.html">Testimonials</a>
+  <a href="faq.html">FAQ</a>
+  <a href="blog.html">Blog</a>
+  <a href="careers.html">Careers</a>
+  <a href="events.html">Events</a>
+  <a href="certifications.html">Certifications</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <section class="hero">
-    <h2>Premium Seedlings & Agro Solutions</h2>
-    <p>Legend Agro Farm provides high-quality planting materials, improved seedlings, and reliable agro support to help farmers achieve higher yields and profitable harvests across Nigeria.</p>
-</section>
-
-<section class="section" id="products">
-    <h2>Our Products</h2>
-    <div class="product-list">
-        <ul>
-            <li>Hybrid Coconut Seedlings (MYD × WAT)</li>
-            <li>Oil Palm Seedlings (Tenera)</li>
-            <li>Cocoa Nursery Plants (CCN-51)</li>
-            <li>Hybrid Elephant Giant Plantain Suckers</li>
-            <li>Hybrid Dwarf Banana Suckers</li>
-            <li>Improved Cassava Stems (TME 419)</li>
-            <li>Pineapple Suckers</li>
-            <li>Treated Yam Setts</li>
-        </ul>
-    </div>
-</section>
-
-<section class="section" id="about">
-    <h2>About Legend Agro Farm</h2>
-    <p>We are committed to supplying farmers with premium quality planting materials and agro solutions. Our mission is to enhance farm productivity and profitability by providing improved seedlings, expert guidance, and exceptional customer support. Farmers choose us for reliability, high-quality products, and nationwide delivery.</p>
-</section>
-
-<section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact-box">
-        <p><strong>Call:</strong> 081 5367 3415</p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/2348153673415" target="_blank">Chat on WhatsApp</a></p>
-        <p><strong>Email:</strong> <a href="mailto:ayotundesamuel317@gmail.com">ayotundesamuel317@gmail.com</a></p>
-        <div class="socials">
-            <a href="https://www.facebook.com/profile.php?id=61578922808940&mibextid=ZbWKwL" target="_blank">Facebook</a>
-            <a href="https://youtube.com/@legendagrofarm?si=O8nowKQ9mHDewav2" target="_blank">YouTube</a>
-            <a href="https://www.instagram.com/legendagrofarm?igsh=dDliNXdwNWxiYnBu" target="_blank">Instagram</a>
-            <a href="https://tiktok.com/@legend.agrofarm" target="_blank">TikTok</a>
-        </div>
-    </div>
+  <h1>Welcome to Legend Agro Farm</h1>
+  <p>Providing high-quality seedlings, improved crop materials, and expert farm solutions to help farmers maximize yields, improve profitability, and achieve sustainable agricultural success nationwide.</p>
 </section>
 
 <footer>
-&copy; 2025 Legend Agro Farm. All Rights Reserved.
+Legend Agro Farm<br>
+Call: 081 5367 3415 | WhatsApp: <a href="https://wa.me/2348153673415" style="color:white;">+2348153673415</a> | Email: ayotundesamuel317@gmail.com<br>
+Follow us: 
+<a href="https://www.facebook.com/profile.php?id=61578922808940&mibextid=ZbWKwL" style="color:white;">Facebook</a> | 
+<a href="https://youtube.com/@legendagrofarm?si=O8nowKQ9mHDewav2" style="color:white;">YouTube</a> | 
+<a href="https://www.instagram.com/legendagrofarm?igsh=dDliNXdwNWxiYnBu" style="color:white;">Instagram</a> | 
+<a href="https://tiktok.com/@legend.agrofarm" style="color:white;">TikTok</a>
 </footer>
 
-<a href="https://wa.me/2348153673415" class="whatsapp-float" target="_blank">💬</a>
+<button id="scrollUp" onclick="scrollTop()">↑</button>
+<script>
+window.onscroll = function() {
+  document.getElementById('scrollUp').style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? 'block' : 'none';
+};
+function scrollTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
 
 </body>
 </html>

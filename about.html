@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Legend Agro Farm</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { font-family:'Roboto',sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; line-height:1.7; }
+header { background:#2c5e1a; color:white; text-align:center; padding:20px; }
+header h1 { margin:0; font-size:28px; }
+.about-section { max-width:1000px; margin:20px auto; padding:0 20px; }
+.about-section h2 { color:#156b2c; font-size:24px; margin-bottom:10px; }
+.about-section p { font-size:16px; margin-bottom:20px; text-align:justify; }
+.founder { display:flex; flex-wrap:wrap; gap:20px; align-items:center; margin-bottom:20px; }
+.founder img { border-radius:10px; max-width:250px; width:100%; height:auto; object-fit:cover; }
+footer { background:#2c5e1a; color:white; text-align:center; padding:20px; font-size:14px; border-top:3px solid #4CAF50; }
+#scrollUp { position:fixed; bottom:70px; right:20px; background:#4CAF50; color:white; border:none; padding:12px 15px; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,0.3); display:none; z-index:1000; }
+@media(max-width:768px){ .founder{flex-direction:column; text-align:center;} .founder img{max-width:100%;} }
+</style>
+</head>
+<body>
+
+<header>
+<h1>ABOUT LEGEND AGRO FARM</h1>
+</header>
+
+<div class="about-section">
+<h2>Who We Are</h2>
+<p>Legend Agro Farm is a leading agricultural company dedicated to supplying high-quality planting materials and providing expert farming solutions. We empower farmers with reliable crops, modern agricultural techniques, and consultancy services designed to increase productivity, maximize profits, and ensure sustainable farming practices across Nigeria.</p>
+
+<h2>Our Mission</h2>
+<p>Our mission is to provide farmers with premium planting materials and professional guidance that enhance crop yield, quality, and profitability. We aim to modernize agriculture by introducing improved crop varieties and innovative farming practices, ensuring every farmer has the tools to succeed in a competitive market.</p>
+
+<h2>Our Vision</h2>
+<p>We envision a thriving agricultural sector in Nigeria where smallholder and commercial farmers alike achieve maximum returns from their land. Our goal is to become the most trusted partner for farmers nationwide, offering high-quality products, education, and services that drive growth, sustainability, and food security.</p>
+
+<h2>What We Offer</h2>
+<p>We provide a wide range of products including hybrid coconut seedlings, oil palm seedlings, cocoa nursery plants, hybrid plantain and banana suckers, improved cassava stems (TME 419), pineapple suckers, and treated yam setts. In addition, we offer farm setup consultancy, crop management advisory, and market access support for our clients.</p>
+
+<h2>Why Farmers Choose Us</h2>
+<p>Farmers choose Legend Agro Farm because of our commitment to quality, reliability, and professionalism. Each product is carefully selected for optimal growth and disease resistance, and our team provides personalized advice and ongoing support. Our clients benefit from improved yields, better market access, and guidance to make informed farming decisions.</p>
+
+<h2>Meet the Founder</h2>
+<div class="founder">
+<img src="images/founder.JPG" alt="Founder - Legend Agro Farm">
+<p>Samuel Ayotunde, the founder of Legend Agro Farm, brings years of agricultural expertise and a passion for improving farming practices in Nigeria. His vision is to help farmers maximize profits, reduce crop losses, and adopt modern, sustainable techniques for long-term success.</p>
+</div>
+
+<h2>Get in Touch</h2>
+<p>Contact us for inquiries, orders, or farm consultancy. Call: 081 5367 3415 | WhatsApp: <a href="https://wa.me/2348153673415">Chat Now</a> | Email: ayotundesamuel317@gmail.com</p>
+</div>
+
+<footer>
+© 2025 Legend Agro Farm. Committed to providing high-quality planting materials and expert farming solutions nationwide.
+</footer>
+
+<button id="scrollUp" onclick="scrollTop()">↑</button>
+
+<script>
+window.onscroll = function(){ document.getElementById('scrollUp').style.display = (document.body.scrollTop>200||document.documentElement.scrollTop>200)?'block':'none'; };
+function scrollTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+</script>
+
+</body>
+</html>

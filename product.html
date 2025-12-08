@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legend Agro Farm | Products</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;font-family:'Roboto',sans-serif;background:#f5f7fa;color:#333;}
+header{background:#2c5e1a;color:white;padding:20px;text-align:center;}
+header h1{margin:0;font-size:28px;}
+nav{background:#4CAF50;display:flex;justify-content:center;flex-wrap:wrap;}
+nav a{color:white;text-decoration:none;padding:14px 20px;font-weight:600;}
+nav a:hover{background:#388E3C;border-radius:5px;}
+h2{text-align:center;color:#156b2c;font-size:28px;margin:30px 0;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:20px;max-width:1200px;margin:auto;}
+.card{background:white;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);padding:20px;transition:0.3s;text-align:center;}
+.card:hover{transform:translateY(-5px);box-shadow:0 6px 15px rgba(0,0,0,0.15);}
+.card img{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:15px;}
+.card h3{color:#156b2c;margin-bottom:10px;font-size:20px;}
+.card p{font-size:15px;line-height:1.7;color:#333;margin-bottom:10px;}
+.card input{width:60px;padding:6px;margin-bottom:6px;border-radius:6px;border:1px solid #ccc;}
+.card button{background:#4CAF50;color:white;border:none;padding:8px 12px;border-radius:5px;font-weight:bold;cursor:pointer;transition:0.3s;margin-top:5px;}
+.card button:hover{background:#388E3C;}
+#cart-modal{position:fixed;top:0;right:0;width:350px;max-width:90%;height:100%;background:#fff;box-shadow:-4px 0 10px rgba(0,0,0,0.2);transform:translateX(100%);transition:0.3s;z-index:999;padding:20px;display:flex;flex-direction:column;}
+#cart-modal.open{transform:translateX(0);}
+#cart-modal h3{text-align:center;color:#2c5e1a;margin-bottom:15px;}
+#cart-items{list-style:none;padding:0;margin:0;flex:1;overflow-y:auto;}
+.cart-item{display:flex;gap:10px;margin-bottom:12px;align-items:center;}
+.cart-item img{width:50px;height:50px;object-fit:cover;border-radius:6px;}
+.cart-item .meta{flex:1;font-size:14px;}
+.cart-item .meta strong{display:block;color:#156b2c;margin-bottom:4px;}
+.cart-item input{width:50px;padding:4px;border-radius:4px;border:1px solid #eee;margin-right:4px;}
+.cart-item button{background:#e74c3c;border:0;color:#fff;padding:4px 6px;border-radius:4px;cursor:pointer;}
+.total-row{display:flex;justify-content:space-between;font-weight:bold;margin-top:12px;color:#2c5e1a;}
+#checkout-whatsapp{background:#25D366;color:#fff;text-align:center;padding:10px;border-radius:6px;margin-top:12px;text-decoration:none;display:block;font-weight:bold;}
+.cart-btn{position:fixed;bottom:90px;right:20px;background:#4CAF50;color:white;border:none;padding:15px 18px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,0.3);z-index:1000;}
+#scrollUp{position:fixed;bottom:150px;right:20px;background:#4CAF50;color:white;border:none;padding:12px 15px;border-radius:50%;font-size:20px;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,0.3);display:none;z-index:1000;}
+@media(max-width:768px){.card img{height:200px;}}
+@media(max-width:480px){.card img{height:180px;}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>LEGEND AGRO FARM</h1>
+</header>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html" style="background:#388E3C;border-radius:5px;">Products</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<h2>Our Products</h2>
+
+<div class="products-grid">
+
+<!-- Hybrid Coconut Seedlings -->
+<div class="card" data-name="Hybrid Coconut Seedlings" data-price="4500">
+<img src="images/coconut1.JPG" alt="Hybrid Coconut Seedlings">
+<h3>Hybrid Coconut Seedlings (MYD × WAT)</h3>
+<p><strong>Uses:</strong> These hybrid coconut seedlings are suitable for commercial plantations, home gardens, and landscaping. They adapt well to varied soil types and climates, ensuring robust growth and early nut production. They provide high-density yields for both domestic and industrial use, especially for coconut oil, copra, and fresh nuts.</p>
+<p><strong>Benefits:</strong> Fast-growing and disease-resistant, these seedlings produce quality nuts consistently. Their hybrid vigor ensures higher survival rates, uniform growth, and efficient nutrient use, maximizing profit potential for farmers and reducing losses from pests or adverse weather.</p>
+<p><strong>Importance:</strong> Investing in these seedlings guarantees long-term agricultural sustainability, faster returns on investment, and a reliable supply of high-quality coconuts for consumption and commercial processing.</p>
+<input type="number" min="1" value="1">
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<!-- Oil Palm Seedlings -->
+<div class="card" data-name="Oil Palm Seedlings" data-price="1000">
+<img src="images/oilpalm1.JPG" alt="Oil Palm Seedlings">
+<h3>Oil Palm Seedlings (Tenera)</h3>
+<p><strong>Uses:</strong> Ideal for establishing commercial oil palm plantations. These Tenera seedlings are suitable for smallholder farms or large-scale plantations. They are cultivated to deliver early fruiting palms for palm oil production, biodiesel, and other palm-derived products.</p>
+<p><strong>Benefits:</strong> Tenera palms produce high oil-to-fruit ratio and maintain uniform growth across plantations. Resistant to diseases like bud rot and capable of yielding consistently high-quality oil over multiple seasons, ensuring profitable farming.</p>
+<p><strong>Importance:</strong> Ensures efficient use of land, faster maturation, and higher economic returns. Farmers achieve predictable harvest cycles and can confidently supply palm oil for industrial and local markets.</p>
+<input type="number" min="1" value="1">
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<!-- Cocoa Nursery Plants -->
+<div class="card" data-name="Cocoa Nursery Plants" data-price="500">
+<img src="images/cocoa1.JPG" alt="Cocoa Nursery Plants">
+<h3>Cocoa Nursery Plants (CCN-51)</h3>
+<p><strong>Uses:</strong> High-yield CCN-51 cocoa plants are ideal for smallholder and commercial cocoa production. They thrive in tropical climates, producing consistent pods suitable for chocolate production and export markets. Perfect for establishing durable, long-term cocoa plantations.</p>
+<p><strong>Benefits:</strong> Resistant to common diseases, these seedlings produce uniform pods with high bean content, reducing losses and improving profitability. Fast-growing and suitable for intensive management, they optimize land productivity and labor efficiency.</p>
+<p><strong>Importance:</strong> Choosing CCN-51 ensures long-term farm sustainability, increased income, and access to both local and export cocoa markets. Farmers benefit from predictable yields and high-quality beans for processing.</p>
+<input type="number" min="1" value="1">
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<!-- Hybrid Elephant Giant Plantain Suckers -->
+<div class="card" data-name="Hybrid Elephant Giant Plantain Suckers" data-price="400">
+<img src="images/plantain1.JPG" alt="Hybrid Elephant Giant Plantain Suckers">
+<h3>Hybrid Elephant Giant Plantain Suckers</h3>
+<p><strong>Uses:</strong> Suitable for high-density plantations and backyard cultivation. These suckers produce large bunches ideal for fresh consumption and local markets. Can be intercropped with other crops, providing consistent fruit harvests throughout the year.</p>
+<p><strong>Benefits:</strong> Fast-growing, disease-resistant, and high-yielding. Produces uniform, large fruits suitable for commercial sale and home consumption, providing regular income for farmers and consistent food supply.</p>
+<p><strong>Importance:</strong> Ensures high productivity and market competitiveness. By planting these suckers, farmers maximize yield, reduce crop losses, and enjoy faster returns on investment.</p>
+<input type="number" min="1" value="1">
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<!-- Hybrid Dwarf Banana Suckers -->
+<div class="card" data-name="Hybrid Dwarf Banana Suckers" data-price="300">
+<img src="images/banana1.JPG" alt="Hybrid Dwarf Banana Suckers">
+<h3>Hybrid Dwarf Banana Suckers</h3>
+<p><strong>Uses:</strong> Ideal for small gardens and commercial banana plantations. They produce early fruiting, medium-sized fruits suitable for fresh market sales, processing, and home consumption. Dwarf size allows easier management and harvesting.</p>
+<p><strong>Benefits:</strong> Resistant to common banana diseases, high productivity, consistent fruit quality, and short harvest cycle. Farmers benefit from higher yields and minimal losses, ensuring profitability even in small plots.</p>
+<p><strong>Importance:</strong> Guarantees year-round fruit supply, efficient land use, and fast returns. Farmers can reliably plan sales and processing activities.</p>
+<input type="number" min="1" value="1">
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<!-- Improved Cassava Stems (TME 419) -->
+<div class="card" data-name="Improved Cassava Stems" data-price="1000">
+<img src="images/cassava1.JPG" alt="Improved Cassava Stems">
+<h3>Improved Cassava Stems (TME 419)</h3>
+<p><strong>Uses:</strong> This TME 419 cassava variety improved by IITA is ideal for both smallholder and commercial farming. Produces high-quality tubers for food products such as garri, flour, ethanol, and starch. Suitable for multiple rotations per year.</p>
+<p><strong>Benefits:</strong> Early maturing (6-8 months), disease-resistant, high yield potential. Consistent tuber size and quality ensures better market prices. Supports food security and income generation simultaneously.</p>
+<p><strong>Importance:</strong> Ensures maximum returns, faster crop rotation, and reliable yields. Ideal for farmers seeking profitable and sustainable cassava farming solutions.</p>
+<input type="number" min="1" value="1">
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<!-- Pineapple Suckers -->
+<div class="card" data-name="Pineapple Suckers" data-price="500">
+<img src="images/pineapple1.JPG" alt="Pineapple Suckers">
+<h3>Pineapple Suckers</h3>
+<p><strong>Uses:</strong> Suitable for MD2, Smooth Cayenne, and Queen varieties. Excellent for commercial production, home gardens, and small plots. Can be sold fresh or processed for juice, jams, or dried fruits.</p>
+<p><strong>Benefits:</strong> High germination, disease-resistant, uniform growth. Ensures predictable fruit quality and quantity for sale or processing. Adaptable to different soils and climate conditions.</p>
+<p><strong>Importance:</strong> Increases farmer income, ensures food security, and supports commercial agribusiness ventures. Maximizes profitability per plot of land.</p>
+<input type="number" min="1" value="1">
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+<!-- Treated Yam Setts -->
+<div class="card" data-name="Treated Yam Setts" data-price="1500">
+<img src="images/yam1.JPG" alt="Treated Yam Setts">
+<h3>Treated Yam Setts</h3>
+<p><strong>Uses:</strong> Pre-treated yam setts for direct planting. Suitable for smallholder and commercial yam production. Reduces rot and increases sprouting efficiency for higher yields.</p>
+<p><strong>Benefits:</strong> Disease-resistant, early sprouting, uniform growth. Improves crop management and reduces losses, ensuring better tuber size and quantity.</p>
+<p><strong>Importance:</strong> Guarantees reliable yam production, maximizes land productivity, and improves profitability. Ensures consistent harvests for local and commercial markets.</p>
+<input type="number" min="1" value="1">
+<button onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+</div>
+
+<!-- Cart Modal -->
+<button class="cart-btn" onclick="toggleCart()">🛒</button>
+<div id="cart-modal">
+<h3>Your Cart</h3>
+<ul id="cart-items"></ul>
+<div class="total-row"><div>Total:</div><div>₦<span id="cart-total">0</span></div></div>
+<a id="checkout-whatsapp" href="#" target="_blank">Order via WhatsApp</a>
+<button onclick="toggleCart()" style="margin-top:10px;background:#e74c3c;color:#fff;width:100%;padding:10px;border:none;border-radius:5px;">Close</button>
+</div>
+
+<footer>
+&copy; 2025 Legend Agro Farm | Call: 081 5367 3415 | WhatsApp: <a href="https://wa.me/2348153673415" style="color:white;">Chat</a> | Email: ayotundesamuel317@gmail.com
+</footer>
+
+<button id="scrollUp" onclick="scrollTop()">↑</button>
+
+<script>
+let cart=[];
+function addToCart(button){
+const card=button.closest('.card');const name=card.dataset.name;const price=parseInt(card.dataset.price,10);
+const qtyInput=card.querySelector('input[type="number"]');let qty=parseInt(qtyInput.value||"1",10);if(isNaN(qty)||qty<1) qty=1;
+const existing=cart.find(i=>i.name===name);if(existing){existing.qty+=qty;}else{cart.push({name,price,qty});}updateCartUI();
+}
+function updateCartUI(){const ul=document.getElementById('cart-items');ul.innerHTML='';let total=0;
+cart.forEach((item,idx)=>{total+=item.price*item.qty;const li=document.createElement('li');li.className='cart-item';
+li.innerHTML=`<img src="images/placeholder.png" onerror="this.src='images/logo.PNG'">
+<div class="meta"><strong>${item.name}</strong><div>₦${item.price} x ${item.qty}</div></div>
+<div><input type="number" value="${item.qty}" min="1" onchange="changeQty(${idx},this.value)">
+<button onclick="removeItem(${idx})">Remove</button></div>`;ul.appendChild(li);});
+document.getElementById('cart-total').textContent=total;
+document.getElementById('checkout-whatsapp').href="https://wa.me/2348153673415?text="+encodeURIComponent("I want to order: "+cart.map(i=>i.name+" x"+i.qty).join(", "));
+}
+function changeQty(i,val){const v=parseInt(val,10);if(isNaN(v)||v<1)return;cart[i].qty=v;updateCartUI();}
+function removeItem(i){cart.splice(i,1);updateCartUI();}
+function toggleCart(){document.getElementById('cart-modal').classList.toggle('open');}
+window.onscroll=function(){document.getElementById('scrollUp').style.display=(document.body.scrollTop>200||document.documentElement.scrollTop>200)?'block':'none';};
+function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+
+</body>
+</html>

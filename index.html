@@ -3,71 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Legend Agro Farm</title>
+<title>Legend AGRO Farm — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa; }
-header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-header .logo { display:flex; align-items:center; gap:12px;}
-header .logo img { height:50px; width:auto; }
-header .logo .brand-title { font-weight:700; font-size:18px; color:#2c5e1a; letter-spacing:1px; text-align:center; }
-nav { text-align:center; margin:15px 0; }
-nav a { margin:0 12px; text-decoration:none; color:#2c5e1a; font-weight:500; transition:0.3s; }
-nav a:hover, nav a.active { color:#4CAF50; }
-.hero { text-align:center; padding:50px 20px; background:#e8f5e9; }
-.hero h1 { font-size:36px; color:#2c5e1a; margin-bottom:15px; }
-.hero p { font-size:18px; color:#333; max-width:800px; margin:auto; line-height:1.6; }
-footer { background:#2c5e1a; color:white; padding:20px 15px; text-align:center; font-size:14px; line-height:1.6; margin-top:30px; border-top:3px solid #4CAF50; }
-#scrollUp { position:fixed; bottom:70px; right:20px; background:#4CAF50; color:white; border:none; padding:12px 15px; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,0.3); display:none; z-index:1000; }
+.header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+.header .logo { font-weight:700; font-size:20px; color:#2c5e1a; }
+.nav a { margin:0 10px; text-decoration:none; color:#2c5e1a; font-weight:500; transition:0.3s; }
+.nav a:hover, .nav a.active { color:#4CAF50; }
+.hero { text-align:center; padding:40px 20px; }
+.hero h1 { font-size:32px; color:#2c5e1a; margin-bottom:15px; }
+.hero p { font-size:16px; color:#333; max-width:800px; margin:auto; line-height:1.6; }
+.products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; padding:20px; max-width:1200px; margin:auto; }
+.product-card { background:#fff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:20px; text-align:center; transition:0.3s; }
+.product-card:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.15); }
+.product-card img { width:100%; height:200px; object-fit:cover; border-radius:10px; margin-bottom:15px; }
+.product-card h3 { font-size:20px; color:#156b2c; margin-bottom:10px; }
+.product-card p { font-size:14px; color:#333; line-height:1.5; margin-bottom:10px; }
+.product-card .price { font-weight:bold; color:#2c5e1a; margin-bottom:10px; }
+.product-card .whatsapp-btn { background:#25D366; color:#fff; text-decoration:none; padding:8px 15px; border-radius:5px; display:inline-block; font-weight:bold; transition:0.3s; }
+.product-card .whatsapp-btn:hover { background:#128C7E; }
+footer { background:#2c5e1a; color:white; padding:20px; text-align:center; font-size:14px; line-height:1.6; margin-top:30px; border-top:3px solid #4CAF50; }
+@media(max-width:768px){ .products-grid { grid-template-columns:1fr; padding:15px; } .product-card img { height:180px; } }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">
-    <img src="images/logo.PNG" alt="Legend Agro Farm">
-    <div class="brand-title">LEGEND AGRO FARM</div>
-  </div>
+<header class="header">
+  <div class="logo">LEGEND AGRO FARM</div>
+  <nav class="nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Products</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="faq.html">FAQ</a>
+    <a href="blog.html">Blog</a>
+    <a href="careers.html">Careers</a>
+    <a href="events.html">Events</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="sitemap.html">Sitemap</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="index.html" class="active">Home</a>
-  <a href="products.html">Products</a>
-  <a href="services.html">Services</a>
-  <a href="about.html">About Us</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="testimonials.html">Testimonials</a>
-  <a href="faq.html">FAQ</a>
-  <a href="blog.html">Blog</a>
-  <a href="careers.html">Careers</a>
-  <a href="events.html">Events</a>
-  <a href="certifications.html">Certifications</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
 <section class="hero">
-  <h1>Welcome to Legend Agro Farm</h1>
-  <p>Providing high-quality seedlings, improved crop materials, and expert farm solutions to help farmers maximize yields, improve profitability, and achieve sustainable agricultural success nationwide.</p>
+  <h1>Welcome to Legend AGRO Farm</h1>
+  <p>Legend AGRO Farm is committed to providing high-quality planting materials, fertilizers, and expert farming solutions to help farmers maximize yields, boost profitability, and achieve sustainable agriculture across Nigeria.</p>
+</section>
+
+<section class="products-grid">
+  <div class="product-card">
+    <img src="images/coconut1.JPG" alt="Hybrid Coconut Seedlings">
+    <h3>Hybrid Coconut Seedlings</h3>
+    <p>High-yield hybrid coconut seedlings (MYD × WAT) developed for commercial plantations and home gardens. Fast growth, disease-resistant, and ideal for producing quality fruits year-round.</p>
+    <div class="price">₦4,500 / seedling</div>
+    <a href="https://wa.me/2348153673415?text=I want to order Hybrid Coconut Seedlings" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  </div>
+
+  <div class="product-card">
+    <img src="images/oilpalm1.JPG" alt="Oil Palm Seedlings">
+    <h3>Oil Palm Seedlings (Tenera)</h3>
+    <p>Premium Tenera oil palm seedlings for optimal oil yield. Resistant to pests and adaptable to various soil types, providing reliable results for both smallholder and commercial farms.</p>
+    <div class="price">₦1,000 / seedling</div>
+    <a href="https://wa.me/2348153673415?text=I want to order Oil Palm Seedlings" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  </div>
+
+  <div class="product-card">
+    <img src="images/cocoa1.JPG" alt="Cocoa Nursery Plants">
+    <h3>Cocoa Nursery Plants (CCN-51)</h3>
+    <p>Healthy CCN-51 cocoa seedlings, carefully nurtured for high yield and disease resistance. Perfect for establishing a productive cocoa farm with early fruiting and long-term profitability.</p>
+    <div class="price">₦500 / seedling</div>
+    <a href="https://wa.me/2348153673415?text=I want to order Cocoa Nursery Plants" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  </div>
+
+  <div class="product-card">
+    <img src="images/plantain1.JPG" alt="Hybrid Elephant Giant Plantain Suckers">
+    <h3>Hybrid Elephant Giant Plantain Suckers</h3>
+    <p>High-quality hybrid plantain suckers with vigorous growth, early fruiting, and superior size. Perfect for commercial cultivation or backyard production with reliable yields.</p>
+    <div class="price">₦400 / sucker</div>
+    <a href="https://wa.me/2348153673415?text=I want to order Hybrid Elephant Giant Plantain Suckers" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  </div>
+
+  <div class="product-card">
+    <img src="images/banana1.JPG" alt="Hybrid Dwarf Banana Suckers">
+    <h3>Hybrid Dwarf Banana Suckers</h3>
+    <p>Dwarf banana suckers with early and continuous fruiting, disease-resistant, and suitable for both small and large-scale plantations. Ideal for fast returns and high productivity.</p>
+    <div class="price">₦300 / sucker</div>
+    <a href="https://wa.me/2348153673415?text=I want to order Hybrid Dwarf Banana Suckers" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  </div>
 </section>
 
 <footer>
-Legend Agro Farm<br>
-Call: 081 5367 3415 | WhatsApp: <a href="https://wa.me/2348153673415" style="color:white;">+2348153673415</a> | Email: ayotundesamuel317@gmail.com<br>
-Follow us: 
-<a href="https://www.facebook.com/profile.php?id=61578922808940&mibextid=ZbWKwL" style="color:white;">Facebook</a> | 
-<a href="https://youtube.com/@legendagrofarm?si=O8nowKQ9mHDewav2" style="color:white;">YouTube</a> | 
-<a href="https://www.instagram.com/legendagrofarm?igsh=dDliNXdwNWxiYnBu" style="color:white;">Instagram</a> | 
-<a href="https://tiktok.com/@legend.agrofarm" style="color:white;">TikTok</a>
+Legend AGRO Farm | Call: 081 5367 3415 | WhatsApp: +2348153673415 | Email: ayotundesamuel317@gmail.com<br>
+Follow us on <a href="https://www.facebook.com/profile.php?id=61578922808940&mibextid=ZbWKwL" target="_blank" style="color:#fff;">Facebook</a>, <a href="https://youtube.com/@legendagrofarm?si=O8nowKQ9mHDewav2" target="_blank" style="color:#fff;">YouTube</a>, <a href="https://www.instagram.com/legendagrofarm?igsh=dDliNXdwNWxiYnBu" target="_blank" style="color:#fff;">Instagram</a>, <a href="https://www.tiktok.com/@legend.agrofarm" target="_blank" style="color:#fff;">TikTok</a>
 </footer>
-
-<button id="scrollUp" onclick="scrollTop()">↑</button>
-<script>
-window.onscroll = function() {
-  document.getElementById('scrollUp').style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? 'block' : 'none';
-};
-function scrollTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-</script>
 
 </body>
 </html>

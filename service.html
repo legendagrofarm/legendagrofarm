@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legend Agro Farm | Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa; color:#333; }
+header { background:#2c5e1a; color:white; padding:20px; text-align:center; }
+header h1 { margin:0; font-size:28px; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; padding:20px; max-width:1200px; margin:auto; }
+.service-card { background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; text-align:center; }
+.service-card:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.15); }
+.service-card h3 { color:#156b2c; font-size:20px; margin-bottom:10px; font-weight:700; }
+.service-card p { font-size:16px; line-height:1.7; color:#333; text-align:justify; }
+footer { background:#2c5e1a; color:white; padding:20px; text-align:center; font-size:14px; line-height:1.6; margin-top:30px; border-top:3px solid #4CAF50; }
+#scrollUp { position:fixed; bottom:70px; right:20px; background:#4CAF50; color:white; border:none; padding:12px 15px; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,0.3); display:none; z-index:1000; }
+@media(max-width:768px){.service-card{padding:15px;}} 
+</style>
+</head>
+<body>
+
+<header>
+<h1>OUR PROFESSIONAL FARMING SERVICES</h1>
+</header>
+
+<div class="services-grid">
+  <div class="service-card">
+    <h3>High-Quality Seedlings & Planting Materials</h3>
+    <p>We provide only top-grade seedlings and planting materials, including hybrid coconuts, improved cassava stems (TME 419), oil palm seedlings, cocoa nursery plants, and hybrid plantain & banana suckers. Each batch is carefully selected to ensure maximum germination, disease resistance, and superior growth performance for both smallholder and commercial farmers.</p>
+  </div>
+  
+  <div class="service-card">
+    <h3>Farm Setup & Consultancy</h3>
+    <p>Our team guides you in setting up efficient, high-yield farms tailored to your crop of choice. From land preparation, planting layout, irrigation planning, to fertilization schedules, we ensure your farm is optimized for productivity and profitability. Our expert consultancy empowers farmers with modern agricultural techniques that increase yield, reduce crop loss, and enhance quality produce.</p>
+  </div>
+  
+  <div class="service-card">
+    <h3>Crop Management & Advisory</h3>
+    <p>Legend Agro Farm provides ongoing farm advisory services covering pest and disease control, nutrient management, pruning, and harvesting strategies. Our goal is to help farmers maintain healthy crops, reduce post-harvest losses, and maximize output. Personalized recommendations ensure that each farmer can achieve consistent high-quality harvests year-round.</p>
+  </div>
+  
+  <div class="service-card">
+    <h3>Market Access & Value Chain Support</h3>
+    <p>We connect farmers with reliable buyers and processors, ensuring access to lucrative markets for their crops. By integrating value chain support, we help farmers not only produce quality yields but also secure profitable sales. Our services include pricing guidance, post-harvest handling advice, and connecting farmers to local and national markets.</p>
+  </div>
+</div>
+
+<footer>
+Legend Agro Farm | Call: 081 5367 3415 | WhatsApp: <a href="https://wa.me/2348153673415" style="color:white;">Chat</a> | Email: ayotundesamuel317@gmail.com<br>
+Committed to providing high-quality planting materials and expert farming solutions nationwide.
+</footer>
+
+<button id="scrollUp" onclick="scrollTop()">↑</button>
+
+<script>
+// Scroll Up Button
+window.onscroll = function(){document.getElementById('scrollUp').style.display=(document.body.scrollTop>200||document.documentElement.scrollTop>200)?'block':'none';};
+function scrollTop(){window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+
+</body>
+</html>

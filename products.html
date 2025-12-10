@@ -3,27 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products – Legend AGRO Farm</title>
+<title>Pricing – Legend AGRO Farm</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa; }
-header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-header .logo { font-size:20px; font-weight:700; color:#2c5e1a; }
+body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa;}
+.header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+.header .logo { font-size:20px; font-weight:700; color:#2c5e1a; }
 .nav a { margin:0 10px; text-decoration:none; color:#2c5e1a; font-weight:500; }
 .nav a:hover, .nav a.active { color:#4CAF50; }
 .page-title { text-align:center; padding:40px 20px; }
 .page-title h1 { font-size:32px; color:#2c5e1a; margin-bottom:10px; }
 .page-title p { font-size:16px; color:#333; max-width:700px; margin:auto; line-height:1.6; }
 
-.products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; max-width:1200px; margin:20px auto; padding:0 20px; }
-.product-card { background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); display:flex; flex-direction:column; }
-.product-card img { width:100%; border-radius:8px; object-fit:cover; height:250px; margin-bottom:15px; }
-.product-card h3 { color:#156b2c; margin-bottom:10px; }
-.product-card p.short-desc { color:#333; margin-bottom:10px; }
-.product-card p.long-desc { color:#444; font-size:14px; line-height:1.6; margin-bottom:15px; }
-.product-card .price { font-weight:bold; color:#2c5e1a; margin-bottom:10px; }
-.product-card button.add-cart { background:#4CAF50; color:#fff; border:none; padding:10px; border-radius:5px; cursor:pointer; font-weight:bold; transition:0.3s; }
-.product-card button.add-cart:hover { background:#2e7d32; }
+.pricing-section { max-width:1200px; margin:auto; padding:20px; }
+.pricing-table { width:100%; border-collapse:collapse; margin-bottom:40px; }
+.pricing-table th, .pricing-table td { padding:14px; border-bottom:1px solid #ddd; text-align:left; font-size:15px; }
+.pricing-table th { background:#2c5e1a; color:#fff; }
+.pricing-table tr:hover { background:#e9f5e5; }
+
+.whatsapp-btn { background:#25D366; color:#fff; padding:8px 14px; text-decoration:none; border-radius:5px; font-weight:bold; transition:0.3s; cursor:pointer; }
+.whatsapp-btn:hover { background:#128C7E; }
+
+.package-box { background:#fff; border-radius:10px; padding:20px; margin-bottom:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+.package-box h3 { color:#156b2c; margin-bottom:10px; }
+.package-box p { line-height:1.6; color:#444; }
+.package-price { font-weight:bold; color:#2c5e1a; font-size:18px; margin-top:10px; }
 
 .cart-panel { position:fixed; left:0; top:0; width:350px; height:100%; background:#fff; box-shadow:2px 0 10px rgba(0,0,0,0.1); padding:20px; overflow-y:auto; transform:translateX(-100%); transition:0.3s; z-index:1000; }
 .cart-panel h2 { color:#2c5e1a; margin-bottom:20px; text-align:center; }
@@ -37,117 +41,170 @@ header .logo { font-size:20px; font-weight:700; color:#2c5e1a; }
 .cart-toggle { position:fixed; left:10px; top:50%; transform:translateY(-50%); background:#4CAF50; color:white; border:none; padding:12px 15px; border-radius:5px; cursor:pointer; z-index:1100; box-shadow:0 4px 6px rgba(0,0,0,0.3); }
 .cart-toggle:hover { background:#2e7d32; }
 
-@media (max-width:768px){ .cart-panel { width:90%; } .products-grid { grid-template-columns:1fr; } }
-
+@media (max-width:768px){ .cart-panel { width:90%; } }
+.section-heading { margin-top:50px; margin-bottom:20px; font-size:22px; color:#2c5e1a; }
 </style>
 </head>
 <body>
 
-<header>
+<header class="header">
   <div class="logo">LEGEND AGRO FARM</div>
   <nav class="nav">
     <a href="index.html">Home</a>
-    <a href="products.html" class="active">Products</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Products</a>
     <a href="services.html">Services</a>
-    <a href="pricing.html">Pricing</a>
     <a href="gallery.html">Gallery</a>
+    <a href="pricing.html" class="active">Pricing</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <section class="page-title">
- <h1>Our Products</h1>
- <p>Explore our high-quality seedlings and planting materials. Add to your cart and place your order directly via WhatsApp.</p>
+ <h1>Our Pricing</h1>
+ <p>Transparent pricing for all farm products, seedlings, packages, and consultancy services at Legend AGRO Farm.</p>
 </section>
 
-<div class="products-grid">
+<section class="pricing-section">
 
-<!-- Example Product Card -->
-<div class="product-card" data-name="TME 419 Cassava" data-price="1500">
-  <img src="TME419.JPG" alt="TME 419 Cassava">
-  <h3>TME 419 Cassava</h3>
-  <p class="short-desc">Improved by IITA, high-performing, disease-resistant, fast maturity, and ideal for processing and commercial farming.</p>
-  <p class="long-desc">TME 419 cassava is a reliable line developed by IITA, known for early maturity, high dry matter content, and excellent processing qualities. Farmers enjoy uniform sprouting, fast growth, and high yields. Ideal for garri, flour, ethanol, and other value-added products, it supports both household and commercial farming for maximum returns.</p>
-  <div class="price">₦1,500 per bundle</div>
-  <button class="add-cart">Add to Cart</button>
+<h2 class="section-heading">🌱 Seedlings & Planting Materials</h2>
+<table class="pricing-table" id="productsTable">
+<tr>
+<th>Product</th>
+<th>Starter Pack / Price</th>
+<th>Spacing / Population</th>
+<th>Order</th>
+</tr>
+
+<!-- Seedlings rows here (same as previous) -->
+<tr data-price="5000" data-name="Hybrid Coconut Seedlings">
+<td>Hybrid Coconut Seedlings</td>
+<td>Starter Pack: 64 seedlings — ₦320,000<br>Price per seedling: ₦5,000</td>
+<td>Spacing: 8 m × 8 m<br>Population: 63–64 per acre | 160 per hectare</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
+
+<tr data-price="1500" data-name="Tenera Oil Palm Seedlings">
+<td>Tenera Oil Palm Seedlings</td>
+<td>Starter Pack: 60 seedlings — ₦90,000<br>Full Acre: 600 seedlings — ₦900,000<br>Price per seedling: ₦1,500</td>
+<td>Spacing: 9 m × 9 m<br>Population: 60 per acre | 143 per hectare</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
+
+<tr data-price="1000" data-name="Cocoa Nursery Plants (CCN-51)">
+<td>Cocoa Nursery Plants (CCN-51)</td>
+<td>Starter Pack: 450 seedlings — ₦450,000<br>Price per seedling: ₦1,000</td>
+<td>Spacing: 3 m × 3 m<br>Population: 450 per acre | 1,110 per hectare</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
+
+<tr data-price="500" data-name="Hybrid Elephant Giant Plantain Suckers">
+<td>Hybrid Elephant Giant Plantain Suckers</td>
+<td>Starter Pack: 650 suckers — ₦325,000<br>Price per sucker: ₦500</td>
+<td>Spacing: 3 m × 2 m<br>Population: 650 per acre | 1,660 per hectare</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
+
+<tr data-price="300" data-name="Hybrid Dwarf Banana Suckers">
+<td>Hybrid Dwarf Banana Suckers</td>
+<td>Starter Pack: 64 suckers — ₦19,200<br>Price per sucker: ₦300</td>
+<td>Spacing: 2.5 m × 2 m<br>Population: 64 per acre | 160 per hectare</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
+
+<tr data-price="1500" data-name="Improved Cassava Stems (TME 419)">
+<td>Improved Cassava Stems (TME 419)</td>
+<td>Starter Pack: 35 bundles — ₦52,500<br>Price per bundle: ₦1,500</td>
+<td>Spacing: 0.7 m × 0.7 m<br>Population: 35 bundles per acre | 90 per hectare</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
+
+<tr data-price="400" data-name="Pineapple Suckers">
+<td>Pineapple Suckers</td>
+<td>Starter Pack: 7,333 suckers for 3 plots — ₦2,933,200<br>Price per sucker: ₦400</td>
+<td>Spacing: 0.9 m × 0.3 m (double row)<br>Population: 22,000 per acre | 50,000 per hectare</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
+
+<tr data-price="700" data-name="Treated Yam Setts">
+<td>Treated Yam Setts</td>
+<td>Starter Pack: 4,000 setts — ₦2,800,000<br>Price per sett: ₦700</td>
+<td>Spacing: 1 m × 1 m<br>Population: 4,000 per acre | 10,000 per hectare</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
+</table>
+
+<h2 class="section-heading">📦 Farm Packages & Bundles</h2>
+
+<div class="package-box" data-price="350000" data-name="1 Acre Plantain Setup Package">
+<h3>1 Acre Plantain Setup Package</h3>
+<p>Includes 800 hybrid elephant giant plantain suckers, fertilizer guide, spacing layout, and expert planting plan for optimal yield.</p>
+<div class="package-price">Package Price: <strong>₦350,000</strong></div>
+<button class="whatsapp-btn add-cart">Add to Cart</button>
 </div>
 
-<div class="product-card" data-name="Hybrid Elephant Giant Plantain Suckers" data-price="500">
-  <img src="PLANTAIN.JPG" alt="Hybrid Elephant Giant Plantain Suckers">
-  <h3>Hybrid Elephant Giant Plantain Suckers</h3>
-  <p class="short-desc">Strong pseudostems, heavy bunch formation, uniform and vigorous suckers for stable establishment.</p>
-  <p class="long-desc">This plantain variety is designed for serious farmers, offering vigorous growth and strong pseudostems. Ideal for commercial and smallholder farms, it ensures balanced nutrient uptake and easy field management. Each sucker is carefully selected to guarantee high survival rates and excellent yield.</p>
-  <div class="price">₦500 per sucker</div>
-  <button class="add-cart">Add to Cart</button>
+<div class="package-box" data-price="200000" data-name="Oil Palm Starter Farm Package">
+<h3>Oil Palm Starter Farm Package</h3>
+<p>Includes 150 Tenera seedlings, soil preparation guide, spacing chart, and first-year management plan to kickstart your oil palm farm.</p>
+<div class="package-price">Package Price: <strong>₦200,000</strong></div>
+<button class="whatsapp-btn add-cart">Add to Cart</button>
 </div>
 
-<div class="product-card" data-name="Hybrid Dwarf Banana Suckers" data-price="400">
-  <img src="BANANA.JPG" alt="Hybrid Dwarf Banana Suckers">
-  <h3>Hybrid Dwarf Banana Suckers</h3>
-  <p class="short-desc">Early-fruiting, easy to manage, and ideal for commercial or home farms.</p>
-  <p class="long-desc">The dwarf banana variety grows quickly with early fruiting. Compact stature allows easy management and intercropping. Uniform suckers ensure high survival rates and consistent production, making it perfect for both commercial plantations and backyard farming.</p>
-  <div class="price">₦400 per sucker</div>
-  <button class="add-cart">Add to Cart</button>
+<div class="package-box" data-price="240000" data-name="Coconut Orchard Package (50 Trees)">
+<h3>Coconut Orchard Package (50 Trees)</h3>
+<p>Includes 50 hybrid coconut seedlings, planting & spacing guide, irrigation advice, and expert support for establishing a productive orchard.</p>
+<div class="package-price">Package Price: <strong>₦240,000</strong></div>
+<button class="whatsapp-btn add-cart">Add to Cart</button>
 </div>
 
-<div class="product-card" data-name="Tenera Oil Palm Seedlings" data-price="1500">
-  <img src="OILPALM.JPG" alt="Tenera Oil Palm Seedlings">
-  <h3>Tenera Oil Palm Seedlings</h3>
-  <p class="short-desc">High oil content, consistent bunch weight, ideal for commercial oil palm production.</p>
-  <p class="long-desc">Tenera oil palm is a premium variety valued for high oil yield and uniform bunch production. Well-suited for both small-scale and large plantations, it ensures long-term productivity and easy field management. Every seedling is healthy, uniform, and ready for planting.</p>
-  <div class="price">₦1,500 per seedling</div>
-  <button class="add-cart">Add to Cart</button>
-</div>
+<h2 class="section-heading">👨‍🌾 Professional Consultancy Services</h2>
 
-<div class="product-card" data-name="Hybrid Coconut Seedlings" data-price="5000">
-  <img src="COCONUT.JPG" alt="Hybrid Coconut Seedlings">
-  <h3>Hybrid Coconut Seedlings</h3>
-  <p class="short-desc">Early-fruiting, short stature, easy to maintain for long-term orchard development.</p>
-  <p class="long-desc">Hybrid dwarf coconuts (MYD × WAT) are ideal for commercial orchards. They produce fruit earlier and are easier to maintain due to their shorter stature. Seedlings are uniform, healthy, and ready for planting, ensuring a productive coconut farm for years.</p>
-  <div class="price">₦5,000 per seedling</div>
-  <button class="add-cart">Add to Cart</button>
-</div>
+<table class="pricing-table">
+<tr>
+<th>Service</th>
+<th>Description</th>
+<th>Price</th>
+<th>Book</th>
+</tr>
 
-<div class="product-card" data-name="Cocoa Nursery Plants (CCN-51)" data-price="1000">
-  <img src="COCOA.JPG" alt="Cocoa Nursery Plants">
-  <h3>Cocoa Nursery Plants (CCN-51)</h3>
-  <p class="short-desc">Disease-resistant, early fruiting cocoa seedlings with consistent pod load.</p>
-  <p class="long-desc">CCN-51 cocoa is a high-performance line known for its early fruiting and disease tolerance. Seedlings are uniform, vigorous, and ready for permanent field establishment. Perfect for farmers looking for reliable yield and commercial-quality pods.</p>
-  <div class="price">₦1,000 per seedling</div>
-  <button class="add-cart">Add to Cart</button>
-</div>
+<tr data-price="25000" data-name="Farm Setup Consultancy">
+<td>Farm Setup Consultancy</td>
+<td>Expert guidance on farm layout, planting schedule, and soil analysis.</td>
+<td>₦25,000</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
 
-<div class="product-card" data-name="Pineapple Suckers" data-price="400">
-  <img src="PINEAPPLE.JPG" alt="Pineapple Suckers">
-  <h3>Pineapple Suckers</h3>
-  <p class="short-desc">Uniform planting, ready for field establishment, maximizes land use and fruit quality.</p>
-  <p class="long-desc">Pineapple suckers are ideal for high-density planting, ensuring optimal land use and excellent fruit quality. Each sucker is carefully selected to guarantee uniform growth and easy establishment, helping farmers achieve maximum productivity.</p>
-  <div class="price">₦400 per sucker</div>
-  <button class="add-cart">Add to Cart</button>
-</div>
+<tr data-price="50000" data-name="On-site Farm Visit">
+<td>On-site Farm Visit</td>
+<td>Technical inspection and yield improvement recommendations.</td>
+<td>₦50,000 + transport</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
 
-<div class="product-card" data-name="Treated Yam Setts" data-price="700">
-  <img src="YAM.JPG" alt="Treated Yam Setts">
-  <h3>Treated Yam Setts</h3>
-  <p class="short-desc">Treated to protect from early insect pressure and soil interference, ensuring healthy establishment.</p>
-  <p class="long-desc">Each yam sett is treated to prevent early pest and disease pressure, ensuring healthy vine growth and tuber development. Uniform and high-quality setts support stable establishment and maximize yield potential for both smallholder and commercial farmers.</p>
-  <div class="price">₦700 per sett</div>
-  <button class="add-cart">Add to Cart</button>
-</div>
+<tr data-price="15000" data-name="1-month Remote Monitoring">
+<td>1-month Remote Monitoring</td>
+<td>Weekly WhatsApp guidance, growth monitoring, and progress evaluation.</td>
+<td>₦15,000</td>
+<td><button class="whatsapp-btn add-cart">Add to Cart</button></td>
+</tr>
 
-</div>
+</section>
 
 <button class="cart-toggle">🛒 Cart</button>
 
 <div class="cart-panel">
-  <h2>Your Cart</h2>
-  <div id="cart-items"></div>
-  <div class="cart-total" id="cart-total">Total: ₦0</div>
-  <a href="#" id="whatsapp-order" class="whatsapp-order" target="_blank">Order via WhatsApp</a>
+<h2>Your Cart</h2>
+<div id="cart-items"></div>
+<div class="cart-total" id="cart-total">Total: ₦0</div>
+<a href="#" id="whatsapp-order" class="whatsapp-order" target="_blank">Order via WhatsApp</a>
 </div>
 
+<footer>
+Legend AGRO Farm | Call: 081 5367 3415 | WhatsApp: +2348153673415 | Email: ayotundesamuel317@gmail.com<br>
+Follow us on Facebook, YouTube, TikTok & Instagram
+</footer>
+
 <script>
-// Cart logic
 const addButtons = document.querySelectorAll('.add-cart');
 const cartPanel = document.querySelector('.cart-panel');
 const cartToggle = document.querySelector('.cart-toggle');
@@ -157,51 +214,48 @@ const whatsappOrder = document.getElementById('whatsapp-order');
 
 let cart = [];
 
-function updateCart() {
-  cartItemsContainer.innerHTML = '';
-  let total = 0;
-  cart.forEach(item => {
-    total += item.price * item.qty;
+function updateCart(){
+  cartItemsContainer.innerHTML='';
+  let total=0;
+  cart.forEach(item=>{
+    total += item.price*item.qty;
     const div = document.createElement('div');
-    div.className = 'cart-item';
+    div.className='cart-item';
     div.innerHTML = `
       <div>
         <div class="cart-item-name">${item.name}</div>
-        <div class="cart-item-qty">
-          <input type="number" min="1" value="${item.qty}" data-name="${item.name}">
-        </div>
+        <div class="cart-item-qty"><input type="number" min="1" value="${item.qty}" data-name="${item.name}"></div>
       </div>
-      <div class="cart-item-price">₦${item.price * item.qty}</div>
+      <div class="cart-item-price">₦${item.price*item.qty}</div>
     `;
     cartItemsContainer.appendChild(div);
   });
-  cartTotal.textContent = `Total: ₦${total}`;
-  const message = cart.map(i => `${i.name} x${i.qty} = ₦${i.price*i.qty}`).join('%0A');
-  whatsappOrder.href = `https://wa.me/2348153673415?text=Hello,%20I%20want%20to%20order:%0A${message}%0ATotal:%20₦${total}`;
+  cartTotal.textContent=`Total: ₦${total}`;
+  const message = cart.map(i=>`${i.name} x${i.qty} = ₦${i.price*i.qty}`).join('%0A');
+  whatsappOrder.href=`https://wa.me/2348153673415?text=Hello,%20I%20want%20to%20order:%0A${message}%0ATotal:%20₦${total}`;
 }
 
-addButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const card = btn.parentElement;
-    const name = card.getAttribute('data-name');
-    const price = parseInt(card.getAttribute('data-price'));
+addButtons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const parent = btn.closest('tr') || btn.closest('.package-box');
+    const name = parent.getAttribute('data-name');
+    const price = parseInt(parent.getAttribute('data-price'));
     const existing = cart.find(i=>i.name===name);
-    if(existing){ existing.qty++; } 
-    else{ cart.unshift({name,price,qty:1}); } // unshift to show new item at top
+    if(existing){ existing.qty++; } else { cart.unshift({name, price, qty:1}); }
     updateCart();
-    cartPanel.style.transform = 'translateX(0)';
+    cartPanel.style.transform='translateX(0)';
   });
 });
 
-cartToggle.addEventListener('click', () => {
+cartToggle.addEventListener('click',()=>{
   cartPanel.style.transform = cartPanel.style.transform==='translateX(0px)'?'translateX(-100%)':'translateX(0)';
 });
 
-cartItemsContainer.addEventListener('change', e => {
+cartItemsContainer.addEventListener('change',e=>{
   if(e.target.tagName==='INPUT'){
     const name = e.target.getAttribute('data-name');
     const item = cart.find(i=>i.name===name);
-    if(item){ item.qty = parseInt(e.target.value); updateCart(); }
+    if(item){ item.qty=parseInt(e.target.value); updateCart(); }
   }
 });
 </script>

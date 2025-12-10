@@ -3,210 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Legend AGRO Farm — Products</title>
+<title>Products – Legend AGRO Farm</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body { font-family:'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa; }
-.header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-.header .logo img { height:50px; }
-.header .logo .brand-title { font-weight:700; font-size:20px; color:#2c5e1a; letter-spacing:1px; text-align:center; }
-h1 { text-align:center; color:#2c5e1a; margin:30px 0; font-size:32px; font-weight:800; letter-spacing:1px; }
-.products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:25px; padding:20px; max-width:1200px; margin:auto; }
-.card { background:#fff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:20px; transition:0.3s ease; }
-.card img { width:100%; max-height:220px; object-fit:cover; border-radius:10px; margin-bottom:15px; }
-.card h3 { font-size:22px; color:#156b2c; margin-bottom:10px; }
-.card p { font-size:15px; color:#333; line-height:1.6; margin-bottom:10px; }
-.card button, .card .btn { background:#4CAF50; color:white; padding:8px 15px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition:0.3s; margin:4px 0; width:100%; }
-.card button:hover, .card .btn:hover { background:#388E3C; }
-#cart-modal { position:fixed; top:0; right:0; width:350px; max-width:90%; height:100%; background:#fff; box-shadow:-4px 0 10px rgba(0,0,0,0.2); transform:translateX(100%); transition:0.3s; z-index:999; padding:20px; display:flex; flex-direction:column; }
-#cart-modal.open { transform:translateX(0); }
-#cart-modal h3 { text-align:center; color:#2c5e1a; margin-bottom:15px; }
-#cart-items { list-style:none; padding:0; margin:0; flex:1; overflow-y:auto; }
-.cart-item { display:flex; gap:10px; margin-bottom:12px; align-items:center; }
-.cart-item img { width:50px; height:50px; object-fit:cover; border-radius:6px; }
-.cart-item .meta { flex:1; font-size:14px; }
-.cart-item .meta strong { display:block; color:#156b2c; margin-bottom:4px; }
-.cart-item input { width:50px; padding:4px; border-radius:4px; border:1px solid #eee; margin-right:4px; }
-.cart-item button { background:#e74c3c; border:0; color:#fff; padding:4px 6px; border-radius:4px; cursor:pointer; }
-.total-row { display:flex; justify-content:space-between; font-weight:bold; margin-top:12px; color:#2c5e1a; }
-#checkout-whatsapp { background:#25D366; color:#fff; text-align:center; padding:10px; border-radius:6px; margin-top:12px; text-decoration:none; display:block; font-weight:bold; }
-.cart-btn { position:fixed; bottom:90px; right:20px; background:#4CAF50; color:white; border:none; padding:15px 18px; border-radius:50%; font-size:22px; cursor:pointer; box-shadow:0 4px 6px rgba(0,0,0,0.3); z-index:1000; }
-.whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25D366; color:white; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; font-size:28px; text-decoration:none; box-shadow:0 4px 6px rgba(0,0,0,0.3); z-index:1000; }
-footer { background:#2c5e1a; color:white; padding:20px 15px; text-align:center; font-size:14px; line-height:1.6; margin-top:30px; border-top:3px solid #4CAF50; }
-@media (max-width:768px){ .products-grid { grid-template-columns:1fr; gap:15px; padding:15px; } .card h3 { font-size:20px; } }
+body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa;}
+.header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+.header .logo { font-size:20px; font-weight:700; color:#2c5e1a; }
+.nav a { margin:0 10px; text-decoration:none; color:#2c5e1a; font-weight:500; }
+.nav a:hover, .nav a.active { color:#4CAF50; }
+.page-title { text-align:center; padding:40px 20px; }
+.page-title h1 { font-size:32px; color:#2c5e1a; margin-bottom:10px; }
+.page-title p { font-size:16px; color:#333; max-width:700px; margin:auto; line-height:1.6; }
+
+.products-container { max-width:1200px; margin:auto; padding:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; }
+
+.product-card { background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); display:flex; flex-direction:column; }
+.product-card img { width:100%; border-radius:10px; object-fit:cover; margin-bottom:15px; height:250px; }
+.product-card h3 { color:#156b2c; margin-bottom:10px; font-size:20px; }
+.product-card p { color:#444; line-height:1.6; margin-bottom:10px; font-size:15px; }
+.cart-section { display:flex; justify-content:space-between; align-items:center; margin-top:auto; }
+.cart-section button, .cart-section a { padding:10px 15px; border:none; border-radius:5px; font-weight:600; cursor:pointer; text-decoration:none; }
+.cart-btn { background:#4CAF50; color:white; transition:0.3s; }
+.cart-btn:hover { background:#2c5e1a; }
+.whatsapp-btn { background:#25D366; color:white; transition:0.3s; }
+.whatsapp-btn:hover { background:#128C7E; }
+footer { background:#2c5e1a; color:white; text-align:center; padding:20px; margin-top:30px; border-top:3px solid #4CAF50; }
 </style>
 </head>
+
 <body>
 
 <header class="header">
-  <div class="logo"><img src="images/logo.PNG" alt="logo"><div class="brand-title">LEGEND AGRO FARM</div></div>
+  <div class="logo">LEGEND AGRO FARM</div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html" class="active">Products</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<h1>OUR PRODUCTS</h1>
+<section class="page-title">
+ <h1>Our Products</h1>
+ <p>Explore our high-quality seedlings and planting materials. Select products to add to your cart or place an order directly via WhatsApp for faster processing.</p>
+</section>
 
-<div class="products-grid">
+<div class="products-container">
 
-<!-- Product Card Template -->
-<!-- Replace image filenames with actual images in images/ folder -->
-
-<div class="card" data-name="Hybrid Coconut Seedlings (MYD × WAT)" data-price="4500">
-  <img src="images/coconut1.JPG" alt="Hybrid Coconut Seedlings">
+<!-- Product 1 -->
+<div class="product-card">
+  <img src="HYBRID COCONUT SEEDLINGS.JPG" alt="Hybrid Coconut Seedlings">
   <h3>Hybrid Coconut Seedlings (MYD × WAT)</h3>
-  <p>Use: These high-quality hybrid coconut seedlings are ideal for establishing productive plantations. They thrive under varied soil conditions, grow rapidly, and produce uniform nuts. Benefits: Early nut production, disease-resistant, and high oil yield. Importance: Guarantees predictable plantation performance and maximizes farmer income. Why Plant: Ensures sustainable profits, quality nuts for consumption and processing, supporting long-term agricultural investment.</p>
-  <div class="price">₦4,500 / seedling</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
+  <p>High-yield MYD × WAT hybrid coconuts built for long-term orchard development, early fruiting, and easier maintenance. Every seedling is uniform and prepared for a productive plantation.</p>
+  <p>Taken further: These hybrid coconuts ensure consistent fruit production, strong root development, and adaptability to various soil types. They are a strategic choice for commercial farmers aiming for optimal returns and long-term sustainability.</p>
+  <div class="cart-section">
+    <button class="cart-btn">Add to Cart</button>
+    <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Hybrid Coconut Seedlings" target="_blank">Order via WhatsApp</a>
+  </div>
 </div>
 
-<div class="card" data-name="Oil Palm Seedlings (Tenera)" data-price="1000">
-  <img src="images/oilpalm1.JPG" alt="Oil Palm Seedlings">
+<!-- Product 2 -->
+<div class="product-card">
+  <img src="OIL PALM SEEDLINGS.JPG" alt="Oil Palm Seedlings">
   <h3>Oil Palm Seedlings (Tenera)</h3>
-  <p>Use: Tenera seedlings produce high oil-to-bunch palms suitable for commercial plantations. Benefits: Early harvest, high oil yield, disease-resistant. Importance: Reduces risks of low-yield palms, ensures efficient plantation. Why Plant: Secure reliable income, meet industrial demand, maximize farm profitability.</p>
-  <div class="price">₦1,000 / seedling</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
+  <p>Industry-standard Tenera palms designed for maximum oil content, consistent bunch weight, and long-term productivity. Each seedling is healthy, uniform, and ready for field establishment.</p>
+  <p>Extended: Tenera seedlings ensure fast canopy development, resistance to pests and diseases, and high yield potential. They are suitable for both smallholder farms and commercial plantations, guaranteeing profitable returns when managed properly.</p>
+  <div class="cart-section">
+    <button class="cart-btn">Add to Cart</button>
+    <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Oil Palm Seedlings" target="_blank">Order via WhatsApp</a>
+  </div>
 </div>
 
-<div class="card" data-name="Cocoa Nursery Plants (CCN-51)" data-price="500">
-  <img src="images/cocoa1.JPG" alt="Cocoa Nursery Plants">
+<!-- Product 3 -->
+<div class="product-card">
+  <img src="COCOA NURSERY PLANTS.JPG" alt="Cocoa Nursery Plants">
   <h3>Cocoa Nursery Plants (CCN-51)</h3>
-  <p>Use: Certified CCN-51 cocoa seedlings are suitable for smallholder or commercial farms, providing uniform pod production. Benefits: High yield, early fruiting, disease-resistant. Importance: Reduces crop loss, ensures predictable harvest. Why Plant: Reliable cocoa plantation, premium beans for local and industrial markets, long-term income security.</p>
-  <div class="price">₦500 / seedling</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
+  <p>High-performance CCN-51 cocoa valued for early fruiting, disease tolerance, and consistent pod load. Seedlings are uniform and ready for permanent field establishment.</p>
+  <p>Extended: Ideal for commercial cocoa farming, these seedlings support canopy health, airflow, and fungal resistance. Each plant provides reliable yields, giving farmers access to premium cocoa markets and profitable returns.</p>
+  <div class="cart-section">
+    <button class="cart-btn">Add to Cart</button>
+    <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Cocoa Seedlings" target="_blank">Order via WhatsApp</a>
+  </div>
 </div>
 
-<div class="card" data-name="Hybrid Elephant Giant Plantain Suckers" data-price="400">
-  <img src="images/plantain1.JPG" alt="Hybrid Elephant Giant Plantain Suckers">
+<!-- Product 4 -->
+<div class="product-card">
+  <img src="HYBRID ELEPHANT GIANT PLANTAIN SUCKERS.JPG" alt="Hybrid Elephant Giant Plantain Suckers">
   <h3>Hybrid Elephant Giant Plantain Suckers</h3>
-  <p>Use: Ideal for high-yield plantations producing large, uniform fruits. Benefits: Disease-resistant, fast growth, high productivity. Importance: Reduces risk, ensures better returns. Why Plant: Consistent fruit production, suitable for processing or consumption, maximize profits.</p>
-  <div class="price">₦400 / sucker</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
+  <p>Designed for strong pseudostems, heavy bunch formation, and stable establishment. Each sucker is uniform and vigorous for commercial farming.</p>
+  <p>Extended: These plantains provide robust growth, optimal canopy lift, and balanced nutrient uptake. Suitable for serious farmers aiming for high yield, quality fruit, and easy farm management.</p>
+  <div class="cart-section">
+    <button class="cart-btn">Add to Cart</button>
+    <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Giant Plantain Suckers" target="_blank">Order via WhatsApp</a>
+  </div>
 </div>
 
-<div class="card" data-name="Hybrid Dwarf Banana Suckers" data-price="300">
-  <img src="images/banana1.JPG" alt="Hybrid Dwarf Banana Suckers">
+<!-- Product 5 -->
+<div class="product-card">
+  <img src="HYBRID DWARF BANANA SUCKERS.JPG" alt="Hybrid Dwarf Banana Suckers">
   <h3>Hybrid Dwarf Banana Suckers</h3>
-  <p>Use: Compact banana plants suitable for small spaces or intensive farms. Benefits: Early harvest, uniform bunches, disease-resistant. Importance: Ensures yield predictability, reduces risks. Why Plant: Fast returns, high-quality fruit, suitable for fresh market or processing.</p>
-  <div class="price">₦300 / sucker</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
+  <p>Early-fruiting dwarf bananas suitable for commercial and home farms. Each sucker is healthy and uniform.</p>
+  <p>Extended: These bananas offer consistent yield, disease resistance, and manageable plant height. Ideal for intensive cultivation and high-density planting, ensuring sustainable farm output and profitability.</p>
+  <div class="cart-section">
+    <button class="cart-btn">Add to Cart</button>
+    <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Dwarf Banana Suckers" target="_blank">Order via WhatsApp</a>
+  </div>
 </div>
 
-<div class="card" data-name="Improved Cassava Stems (TME 419)" data-price="1000">
-  <img src="images/cassava1.JPG" alt="Improved Cassava Stems">
+<!-- Product 6 -->
+<div class="product-card">
+  <img src="IMPROVED CASSAVA STEMS.JPG" alt="Improved Cassava Stems">
   <h3>Improved Cassava Stems (TME 419)</h3>
-  <p>Use: High-yield, early maturing, and disease-resistant cassava stems (IITA improved) for smallholder and commercial farms. Benefits: High starch content, uniform sprouting, fast growth. Importance: Reduces crop failure, maximizes profitability. Why Plant: Provides reliable harvests, access to industrial and local markets, ensures sustainable farming.</p>
-  <div class="price">₦1,000 / bundle</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
+  <p>Reliable TME 419 cassava line known for early maturity, high dry matter, and good processing value. Clean stems, strong sprouting, and ready for planting.</p>
+  <p>Extended: High-yielding and disease-resistant, TME 419 ensures uniform growth, efficient field management, and excellent industrial application for garri, flour, and starch production. Farmers benefit from faster harvest cycles and profitable returns.</p>
+  <div class="cart-section">
+    <button class="cart-btn">Add to Cart</button>
+    <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Cassava Stems" target="_blank">Order via WhatsApp</a>
+  </div>
 </div>
 
-<div class="card" data-name="Pineapple Suckers" data-price="500">
-  <img src="images/pineapple1.JPG" alt="Pineapple Suckers">
+<!-- Product 7 -->
+<div class="product-card">
+  <img src="PINEAPPLE SUCKERS.JPG" alt="Pineapple Suckers">
   <h3>Pineapple Suckers</h3>
-  <p>Use: Hybrid pineapple suckers for sweet, uniform fruits. Benefits: Pest-resistant, high productivity, suitable for commercial farms. Importance: Ensures predictable yields, reduces losses. Why Plant: Consistent production, quality fruit for market and processing, maximize profitability.</p>
-  <div class="price">₦500 / sucker</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
+  <p>Clean, uniform pineapple suckers for field establishment, maximizing land use and fruit quality.</p>
+  <p>Extended: These suckers respond to density planting, promoting healthy growth and optimal fruit yield. Ideal for both small and commercial plots, ensuring high-quality pineapples for market or processing.</p>
+  <div class="cart-section">
+    <button class="cart-btn">Add to Cart</button>
+    <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Pineapple Suckers" target="_blank">Order via WhatsApp</a>
+  </div>
 </div>
 
-<div class="card" data-name="Treated Yam Setts" data-price="1500">
-  <img src="images/yam1.JPG" alt="Treated Yam Setts">
+<!-- Product 8 -->
+<div class="product-card">
+  <img src="TREATED YAM SETTS.JPG" alt="Treated Yam Setts">
   <h3>Treated Yam Setts</h3>
-  <p>Use: Ready-to-plant yam setts, treated for better germination and sprouting. Benefits: Fast sprouting, disease-free, produces large tubers. Importance: Reduces loss, ensures uniform growth. Why Plant: Secure high-quality yam production, consistent harvest, profitable investment.</p>
-  <div class="price">₦1,500 / sett</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
-</div>
-
-<div class="card" data-name="Vegetable Seeds" data-price="15000">
-  <img src="images/veg1.JPG" alt="Vegetable Seeds">
-  <h3>Vegetable Seeds (Ugu, Spinach, etc.)</h3>
-  <p>Use: High germination seeds suitable for backyard or commercial cultivation. Benefits: Consistent growth, disease-resistant, easy to plant. Importance: Ensures quality vegetables, predictable yields. Why Plant: Provides sustainable nutrition, fresh produce for market, maximizes returns for vegetable farming.</p>
-  <div class="price">₦15,000 / pack</div>
-  <input type="number" min="1" value="1">
-  <button onclick="addToCart(this)">Add to Cart</button>
+  <p>Protected yam setts to prevent early insect and soil damage, ensuring clean establishment and stable tuber growth.</p>
+  <p>Extended: These setts provide healthy vine growth, optimal tuber development, and reliable yield for farmers. Suitable for intensive or commercial yam production, securing maximum returns.</p>
+  <div class="cart-section">
+    <button class="cart-btn">Add to Cart</button>
+    <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Treated Yam Setts" target="_blank">Order via WhatsApp</a>
+  </div>
 </div>
 
 </div>
-
-<!-- Cart button & modal -->
-<button class="cart-btn" onclick="toggleCart()">🛒</button>
-<div id="cart-modal">
-  <h3>Your Cart</h3>
-  <ul id="cart-items"></ul>
-  <div class="total-row"><div>Total:</div><div>₦<span id="cart-total">0</span></div></div>
-  <a id="checkout-whatsapp" href="#" target="_blank">Order via WhatsApp</a>
-  <button onclick="toggleCart()" style="margin-top:10px; background:#e74c3c; color:#fff; width:100%; padding:10px; border:none; border-radius:5px;">Close</button>
-</div>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/2348153673415" target="_blank" class="whatsapp-float">💬</a>
 
 <footer>
-LEGEND AGRO FARM<br>
-Call: 081 5367 3415 | WhatsApp: +2348153673415 | Email: ayotundesamuel317@gmail.com<br>
-Location: Ibadan, Oyo State, Nigeria<br>
-Committed to providing high-quality planting materials and fertilizers to boost farmer productivity and profitability nationwide.
+Legend AGRO Farm | Call: 081 5367 3415 | WhatsApp: +2348153673415 | Email: ayotundesamuel317@gmail.com<br>
+Follow us on Facebook, YouTube, TikTok & Instagram
 </footer>
-
-<script>
-// Cart logic
-let cart = [];
-
-function addToCart(button){
-  const card = button.closest('.card');
-  const name = card.dataset.name;
-  const price = parseInt(card.dataset.price,10);
-  const qtyInput = card.querySelector('input[type="number"]');
-  let qty = parseInt(qtyInput.value || "1",10);
-  if(isNaN(qty) || qty < 1) qty = 1;
-  const existing = cart.find(i => i.name === name);
-  if(existing){ existing.qty += qty; } 
-  else { cart.push({name, price, qty}); }
-  updateCartUI();
-}
-
-function updateCartUI(){
-  const ul = document.getElementById('cart-items');
-  ul.innerHTML = '';
-  let total = 0;
-  cart.forEach((item, idx) => {
-    total += item.price * item.qty;
-    const li = document.createElement('li');
-    li.className='cart-item';
-    li.innerHTML = `
-      <img src="images/placeholder.png" onerror="this.src='images/logo.PNG'">
-      <div class="meta"><strong>${item.name}</strong><div>₦${item.price} x ${item.qty}</div></div>
-      <div>
-        <input type="number" value="${item.qty}" min="1" onchange="changeQty(${idx}, this.value)">
-        <button onclick="removeItem(${idx})">Remove</button>
-      </div>
-    `;
-    ul.appendChild(li);
-  });
-  document.getElementById('cart-total').textContent = total;
-  document.getElementById('checkout-whatsapp').href = "https://wa.me/2348153673415?text=" + encodeURIComponent("I want to order: " + cart.map(i=>i.name + " x" + i.qty).join(", "));
-}
-
-function changeQty(i, val){
-  const v = parseInt(val,10);
-  if(isNaN(v) || v < 1) return;
-  cart[i].qty = v;
-  updateCartUI();
-}
-
-function removeItem(i){
-  cart.splice(i,1);
-  updateCartUI();
-}
-
-function toggleCart(){
-  document.getElementById('cart-modal').classList.toggle('open');
-}
-</script>
 
 </body>
 </html>

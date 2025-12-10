@@ -31,14 +31,23 @@ body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7f
 }
 .whatsapp-btn:hover { background:#128C7E; }
 
-.packages { margin-top:40px; }
-.package-box {
- background:#fff; border-radius:10px; padding:20px; margin-bottom:20px;
+.package-box { 
+ background:#fff; border-radius:10px; padding:20px; margin-bottom:20px; 
  box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 .package-box h3 { color:#156b2c; margin-bottom:10px; }
 .package-box p { line-height:1.6; color:#444; }
 .package-price { font-weight:bold; color:#2c5e1a; font-size:18px; margin-top:10px; }
+
+#cart { 
+ position:fixed; top:100px; right:20px; background:#fff; padding:15px; width:300px; max-height:500px; 
+ overflow-y:auto; border:2px solid #4CAF50; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+#cart h3 { color:#156b2c; margin-top:0; }
+.cart-item { display:flex; justify-content:space-between; margin-bottom:10px; }
+.cart-item span { display:block; }
+#sendOrder { width:100%; background:#25D366; color:#fff; padding:10px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; }
+#sendOrder:hover { background:#128C7E; }
 
 footer {
  background:#2c5e1a; color:white; text-align:center; padding:20px; margin-top:30px;
@@ -71,88 +80,77 @@ footer {
 
 <section class="page-title">
  <h1>Our Pricing</h1>
- <p>Clear and transparent pricing for all farm products, seedlings, and agricultural services at Legend AGRO Farm.</p>
+ <p>Transparent pricing for all farm products, seedlings, packages, and consultancy services at Legend AGRO Farm.</p>
 </section>
 
 <section class="pricing-section">
 
-<h2 style="color:#2c5e1a;">🌱 Seedlings & Products Price List</h2>
+<h2 style="color:#2c5e1a;">🌱 Seedlings & Planting Materials</h2>
 
-<table class="pricing-table">
+<table class="pricing-table" id="productsTable">
  <tr>
    <th>Product</th>
-   <th>Description</th>
-   <th>Price</th>
+   <th>Starter Pack / Price</th>
+   <th>Spacing / Population</th>
    <th>Order</th>
  </tr>
 
  <tr>
    <td>Hybrid Coconut Seedlings</td>
-   <td>High-yield MYD × WAT hybrid coconuts for commercial plantations.</td>
-   <td><strong>₦4,500 / seedling</strong></td>
-   <td><a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Hybrid Coconut Seedlings" target="_blank">Order</a></td>
+   <td>Starter Pack: 64 seedlings — ₦320,000<br>Price per seedling: ₦5,000</td>
+   <td>Spacing: 8 m × 8 m<br>Population: 63–64 per acre | 160 per hectare</td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Hybrid Coconut Seedlings', '₦5,000')">Add to Cart</button></td>
  </tr>
 
  <tr>
    <td>Tenera Oil Palm Seedlings</td>
-   <td>Premium Tenera palms for maximum oil production.</td>
-   <td><strong>₦1,000 / seedling</strong></td>
-   <td><a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Oil Palm Seedlings" target="_blank">Order</a></td>
+   <td>Starter Pack: 60 seedlings — ₦90,000<br>Full Acre: 600 seedlings — ₦900,000<br>Price per seedling: ₦1,500</td>
+   <td>Spacing: 9 m × 9 m<br>Population: 60 per acre | 143 per hectare</td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Tenera Oil Palm Seedlings', '₦1,500')">Add to Cart</button></td>
  </tr>
 
  <tr>
    <td>Cocoa Nursery Plants (CCN-51)</td>
-   <td>Disease-resistant cocoa with early fruiting.</td>
-   <td><strong>₦500 / seedling</strong></td>
-   <td><a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Cocoa Seedlings" target="_blank">Order</a></td>
+   <td>Starter Pack: 450 seedlings — ₦450,000<br>Price per seedling: ₦1,000</td>
+   <td>Spacing: 3 m × 3 m<br>Population: 450 per acre | 1,110 per hectare</td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Cocoa Nursery Plants (CCN-51)', '₦1,000')">Add to Cart</button></td>
  </tr>
 
  <tr>
    <td>Hybrid Elephant Giant Plantain Suckers</td>
-   <td>Fast-growing giant hybrid plantain suckers.</td>
-   <td><strong>₦400 / sucker</strong></td>
-   <td><a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Giant Plantain Suckers" target="_blank">Order</a></td>
+   <td>Starter Pack: 650 suckers — ₦325,000<br>Price per sucker: ₦500</td>
+   <td>Spacing: 3 m × 2 m<br>Population: 650 per acre | 1,660 per hectare</td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Hybrid Elephant Giant Plantain Suckers', '₦500')">Add to Cart</button></td>
  </tr>
 
  <tr>
-   <td>Dwarf Banana Suckers</td>
-   <td>Early-fruiting dwarf bananas for commercial & home farms.</td>
-   <td><strong>₦300 / sucker</strong></td>
-   <td><a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want to order Dwarf Banana Suckers" target="_blank">Order</a></td>
+   <td>Hybrid Dwarf Banana Suckers</td>
+   <td>Starter Pack: 64 suckers — ₦19,200<br>Price per sucker: ₦300</td>
+   <td>Spacing: 2.5 m × 2 m<br>Population: 64 per acre | 160 per hectare</td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Hybrid Dwarf Banana Suckers', '₦300')">Add to Cart</button></td>
  </tr>
 
+ <tr>
+   <td>Improved Cassava Stems (TME 419)</td>
+   <td>Starter Pack: 35 bundles — ₦52,500<br>Price per bundle: ₦1,500</td>
+   <td>Spacing: 0.7 m × 0.7 m<br>Population: 35 bundles per acre | 90 per hectare</td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Improved Cassava Stems (TME 419)', '₦1,500')">Add to Cart</button></td>
+ </tr>
+
+ <tr>
+   <td>Pineapple Suckers</td>
+   <td>Starter Pack: 7,333 suckers for 3 plots — ₦2,933,200<br>Price per sucker: ₦400</td>
+   <td>Spacing: 0.9 m × 0.3 m (double row)<br>Population: 22,000 per acre | 50,000 per hectare</td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Pineapple Suckers', '₦400')">Add to Cart</button></td>
+ </tr>
+
+ <tr>
+   <td>Treated Yam Setts</td>
+   <td>Starter Pack: 4,000 setts — ₦2,800,000<br>Price per sett: ₦700</td>
+   <td>Spacing: 1 m × 1 m<br>Population: 4,000 per acre | 10,000 per hectare</td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Treated Yam Setts', '₦700')">Add to Cart</button></td>
+ </tr>
 </table>
-
-<!-- PACKAGES -->
-
-<div class="packages">
-
-<h2 style="color:#2c5e1a;">🌾 Farm Packages & Bundles</h2>
-
-<div class="package-box">
- <h3>1 Acre Plantain Setup Package</h3>
- <p>Includes 800 giant hybrid plantain suckers, spacing plan, fertilizer guide, and expert planting layout.</p>
- <div class="package-price">Package Price: <strong>₦350,000</strong></div>
- <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want the 1 Acre Plantain Package" target="_blank">Book Now</a>
-</div>
-
-<div class="package-box">
- <h3>Oil Palm Starter Farm Package</h3>
- <p>Includes 150 Tenera seedlings, spacing chart, soil preparation guide, and first-year management plan.</p>
- <div class="package-price">Package Price: <strong>₦200,000</strong></div>
- <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want the Oil Palm Package" target="_blank">Book Now</a>
-</div>
-
-<div class="package-box">
- <h3>Coconut Orchard Package (50 Trees)</h3>
- <p>Includes 50 hybrid coconut seedlings + planting and spacing guide + irrigation support.</p>
- <div class="package-price">Package Price: <strong>₦240,000</strong></div>
- <a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want the Coconut Orchard Package" target="_blank">Book Now</a>
-</div>
-
-</div>
-
-<!-- Consultancy -->
 
 <h2 style="color:#2c5e1a; margin-top:40px;">👨‍🌾 Professional Consultancy Services</h2>
 
@@ -168,31 +166,93 @@ footer {
    <td>Farm Setup Consultancy</td>
    <td>Expert guidance on farm layout, planting schedule, and soil analysis.</td>
    <td><strong>₦25,000</strong></td>
-   <td><a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want Farm Setup Consultancy" target="_blank">Book</a></td>
+   <td><button class="whatsapp-btn" onclick="addToCart('Farm Setup Consultancy', '₦25,000')">Book</button></td>
  </tr>
 
  <tr>
    <td>On-site Farm Visit</td>
    <td>Technical inspection and yield improvement recommendations.</td>
    <td><strong>₦50,000 + transport</strong></td>
-   <td><a class="whatsapp-btn" href="https://wa.me/2348153673415?text=Book On-site Farm Visit" target="_blank">Book</a></td>
+   <td><button class="whatsapp-btn" onclick="addToCart('On-site Farm Visit', '₦50,000')">Book</button></td>
  </tr>
 
  <tr>
    <td>1-month Remote Monitoring</td>
    <td>Weekly WhatsApp guidance, growth monitoring, and progress evaluation.</td>
    <td><strong>₦15,000</strong></td>
-   <td><a class="whatsapp-btn" href="https://wa.me/2348153673415?text=I want Remote Farm Monitoring" target="_blank">Book</a></td>
+   <td><button class="whatsapp-btn" onclick="addToCart('1-month Remote Monitoring', '₦15,000')">Book</button></td>
  </tr>
-
 </table>
+
+<h2 style="color:#2c5e1a; margin-top:40px;">📦 Farm Bundles & Packages</h2>
+
+<div class="package-box">
+ <h3>1 Acre Plantain Setup Package</h3>
+ <p>Includes 800 hybrid elephant giant plantain suckers, fertilizer guide, spacing layout, and expert planting plan for optimal yield.</p>
+ <div class="package-price">Package Price: <strong>₦350,000</strong></div>
+ <button class="whatsapp-btn" onclick="addToCart('1 Acre Plantain Setup Package', '₦350,000')">Add to Cart</button>
+</div>
+
+<div class="package-box">
+ <h3>Oil Palm Starter Farm Package</h3>
+ <p>Includes 150 Tenera seedlings, soil preparation guide, spacing chart, and first-year management plan to kickstart your oil palm farm.</p>
+ <div class="package-price">Package Price: <strong>₦200,000</strong></div>
+ <button class="whatsapp-btn" onclick="addToCart('Oil Palm Starter Farm Package', '₦200,000')">Add to Cart</button>
+</div>
+
+<div class="package-box">
+ <h3>Coconut Orchard Package (50 Trees)</h3>
+ <p>Includes 50 hybrid coconut seedlings, planting & spacing guide, irrigation advice, and expert support for establishing a productive orchard.</p>
+ <div class="package-price">Package Price: <strong>₦240,000</strong></div>
+ <button class="whatsapp-btn" onclick="addToCart('Coconut Orchard Package (50 Trees)', '₦240,000')">Add to Cart</button>
+</div>
 
 </section>
 
+<!-- Cart Sidebar -->
+<div id="cart">
+<h3>Your Cart</h3>
+<div id="cartItems"></div>
+<button id="sendOrder" onclick="sendWhatsAppOrder()">Send Order via WhatsApp</button>
+</div>
+
 <footer>
-Legend AGRO Farm | Call: 081 5367 3415 | WhatsApp: +2348153673415 | Email: ayotundesamuel317@gmail.com
-<br>Follow us on Facebook, YouTube, TikTok & Instagram
+Legend AGRO Farm | Call: 081 5367 3415 | WhatsApp: +2348153673415 | Email: ayotundesamuel317@gmail.com<br>
+Follow us on Facebook, YouTube, TikTok & Instagram
 </footer>
+
+<script>
+let cart = [];
+
+function addToCart(item, price){
+  cart.push({item, price});
+  renderCart();
+}
+
+function renderCart(){
+  const cartDiv = document.getElementById('cartItems');
+  cartDiv.innerHTML = '';
+  cart.forEach((c,i)=>{
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `<span>${c.item}</span><span>${c.price}</span>`;
+    cartDiv.appendChild(div);
+  });
+}
+
+function sendWhatsAppOrder(){
+  if(cart.length === 0){
+    alert('Your cart is empty!');
+    return;
+  }
+  let text = 'Hello Legend AGRO Farm, I would like to order:%0A';
+  cart.forEach(c=>{
+    text += `- ${c.item} : ${c.price}%0A`;
+  });
+  const waLink = `https://wa.me/2348153673415?text=${text}`;
+  window.open(waLink, '_blank');
+}
+</script>
 
 </body>
 </html>

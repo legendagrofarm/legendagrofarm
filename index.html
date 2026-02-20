@@ -20,59 +20,62 @@
     /* Header & Navigation */
     .header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1001; }
     .logo { font-weight: 900; font-size: 20px; color: var(--primary); text-decoration: none; }
-    .nav a { margin-left: 20px; text-decoration: none; color: var(--primary); font-weight: 700; font-size: 14px; text-transform: uppercase; transition: 0.3s; }
+    
+    .nav { display: flex; align-items: center; }
+    .nav a { margin-left: 20px; text-decoration: none; color: var(--primary); font-weight: 700; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
     .nav a:hover, .nav a.active { color: var(--highlight); }
+
+    /* Dropdown Logic */
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { cursor: pointer; border: none; background: none; font-family: inherit; font-weight: 700; text-transform: uppercase; font-size: 13px; color: var(--primary); padding-left: 20px; }
+    .dropdown-content { display: none; position: absolute; background-color: white; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 1; border-radius: 8px; margin-top: 10px; }
+    .dropdown-content a { color: var(--primary); padding: 12px 16px; text-decoration: none; display: block; margin: 0; text-transform: none; border-bottom: 1px solid #eee; }
+    .dropdown-content a:hover { background-color: var(--light); color: var(--highlight); }
+    .dropdown:hover .dropdown-content { display: block; }
 
     /* Hero Section */
     .hero { 
         background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.85)), url('images/COCONUT1.JPG');
-        background-size: cover;
-        background-position: center;
-        color: white; 
-        padding: 100px 20px; 
-        text-align: center; 
+        background-size: cover; background-position: center; color: white; padding: 100px 20px; text-align: center; 
     }
     .hero h1 { font-size: 48px; font-weight: 900; margin: 0; line-height: 1.1; }
     .hero p { font-size: 20px; max-width: 800px; margin: 20px auto; opacity: 0.9; }
+    
+    /* Buttons */
     .hero-btns { margin-top: 30px; }
     .btn-main { background: var(--highlight); color: white; padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: 900; display: inline-block; margin: 10px; transition: 0.3s; }
     .btn-outline { border: 2px solid white; color: white; padding: 13px 35px; border-radius: 8px; text-decoration: none; font-weight: 900; display: inline-block; margin: 10px; transition: 0.3s; }
     .btn-main:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-    /* Section Headers */
+    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
     .section-title { text-align: center; margin: 60px 0 40px; }
     .section-title h2 { font-size: 32px; color: var(--primary); font-weight: 900; position: relative; display: inline-block; padding-bottom: 10px; }
     .section-title h2::after { content: ''; width: 60px; height: 4px; background: var(--highlight); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-    /* Product Grid */
-    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+    /* Products Grid */
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 60px; }
-    
     .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; }
     .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
     .product-card img { width: 100%; height: 200px; object-fit: cover; }
     .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
     .product-info h3 { margin: 0 0 10px; font-size: 18px; color: var(--primary); font-weight: 900; }
     .product-info p { font-size: 14px; color: #666; margin-bottom: 15px; flex-grow: 1; }
-    
     .card-price { font-size: 20px; font-weight: 900; color: var(--accent); margin-bottom: 15px; }
-    .card-link { color: var(--highlight); text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase; border-bottom: 2px solid transparent; transition: 0.3s; }
-    .card-link:hover { border-bottom: 2px solid var(--highlight); }
 
-    /* Features/Services Teaser */
-    .services-teaser { background: #eef5f1; padding: 80px 20px; border-radius: 30px; margin: 40px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-    .feature-item { text-align: center; padding: 20px; }
-    .feature-item span { font-size: 40px; display: block; margin-bottom: 15px; }
-    .feature-item h4 { color: var(--primary); margin: 0 0 10px; font-weight: 900; }
-
-    footer { background: var(--primary); color: white; padding: 60px 20px; text-align: center; margin-top: 80px; }
-    .social-links { margin: 20px 0; }
-    .social-links a { color: white; margin: 0 15px; text-decoration: none; font-weight: 700; opacity: 0.8; }
-    .social-links a:hover { opacity: 1; color: var(--highlight); }
+    /* Professional Footer */
+    footer { background: var(--primary); color: white; padding: 80px 5% 40px; margin-top: 80px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: auto; text-align: left; }
+    .footer-col h4 { color: var(--highlight); text-transform: uppercase; margin-bottom: 20px; font-size: 16px; letter-spacing: 1px; }
+    .footer-col ul { list-style: none; padding: 0; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: #ccc; text-decoration: none; font-size: 14px; transition: 0.3s; }
+    .footer-col ul li a:hover { color: white; padding-left: 5px; }
+    
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; padding-top: 30px; text-align: center; font-size: 13px; color: #aaa; }
 
     @media(max-width:768px){ 
+        .nav { display: none; } /* On mobile, you might want to add a burger menu later */
         .hero h1 { font-size: 32px; }
-        .hero p { font-size: 16px; }
     }
 </style>
 </head>
@@ -82,8 +85,22 @@
   <a href="index.html" class="logo">LEGEND AGRO FARM</a>
   <nav class="nav">
     <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
     <a href="products.html">Products</a>
     <a href="services.html">Services</a>
+    
+    <div class="dropdown">
+      <span class="dropbtn">Company ▾</span>
+      <div class="dropdown-content">
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog & News</a>
+        <a href="gallery.html">Photo Gallery</a>
+        <a href="careers.html">Careers</a>
+        <a href="certifications.html">Certifications</a>
+      </div>
+    </div>
+
     <a href="contact.html">Contact</a>
   </nav>
 </header>
@@ -92,8 +109,8 @@
   <h1>The Foundation of Professional Agriculture</h1>
   <p>Supplying high-performance hybrid seedlings, industrial-grade planting materials, and expert farm consultancy across Nigeria.</p>
   <div class="hero-btns">
-      <a href="products.html" class="btn-main">View Seedlings</a>
-      <a href="services.html" class="btn-outline">Our Services</a>
+      <a href="products.html" class="btn-main">Get Seedlings</a>
+      <a href="contact.html" class="btn-outline">Talk to an Expert</a>
   </div>
 </section>
 
@@ -107,9 +124,9 @@
             <img src="images/COCONUT1.JPG" alt="Coconut">
             <div class="product-info">
                 <h3>Dwarf Wax 1 Coconut</h3>
-                <p>High-yield, fast-growing hybrid. Fruiting begins in 2.5 to 3 years. Engineered for maximum oil and meat thickness.</p>
+                <p>High-yield, fast-growing hybrid. Fruiting begins in 2.5 to 3 years. Engineered for maximum oil.</p>
                 <div class="card-price">₦5,000</div>
-                <a href="products.html#coconut" class="card-link">View Technical Specs →</a>
+                <a href="products.html" class="card-link" style="color: var(--highlight); font-weight: bold; text-decoration: none;">Order Now →</a>
             </div>
         </div>
 
@@ -117,9 +134,9 @@
             <img src="images/OILPALM1.JPG" alt="Oil Palm">
             <div class="product-info">
                 <h3>Tenera Oil Palm Hybrid</h3>
-                <p>The industry standard for oil extraction. High bunch weight, pest-resistant, and high OER (Oil Extraction Ratio).</p>
+                <p>The industry standard for oil extraction. High bunch weight and pest-resistant.</p>
                 <div class="card-price">₦1,500</div>
-                <a href="products.html#oilpalm" class="card-link">View Investment Math →</a>
+                <a href="products.html" class="card-link" style="color: var(--highlight); font-weight: bold; text-decoration: none;">Order Now →</a>
             </div>
         </div>
 
@@ -127,59 +144,60 @@
             <img src="images/COCOA1.JPG" alt="Cocoa">
             <div class="product-info">
                 <h3>CCN-51 Industrial Cocoa</h3>
-                <p>The world's most productive cocoa variety. Explosive yield and extreme resistance to Black Pod disease.</p>
+                <p>The world's most productive variety. Explosive yield and disease resistance.</p>
                 <div class="card-price">₦1,000</div>
-                <a href="products.html#cocoa" class="card-link">View Planting Guide →</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="images/PLANTAIN1.JPG" alt="Plantain">
-            <div class="product-info">
-                <h3>Elephant Giant Plantain</h3>
-                <p>Vigorous hybrid suckers for commercial bunches. Early fruiting and robust disease resistance.</p>
-                <div class="card-price">₦500</div>
-                <a href="products.html#plantain" class="card-link">Product Details →</a>
+                <a href="products.html" class="card-link" style="color: var(--highlight); font-weight: bold; text-decoration: none;">Order Now →</a>
             </div>
         </div>
     </section>
-
-    <div class="section-title">
-        <h2>Why Partner With Legend AGRO?</h2>
-    </div>
-
-    <div class="services-teaser">
-        <div class="feature-item">
-            <span>🧬</span>
-            <h4>Elite Genetics</h4>
-            <p>Every seedling is vetted for vigor, yield potential, and disease resistance before it leaves our nursery.</p>
-        </div>
-        <div class="feature-item">
-            <span>📏</span>
-            <h4>Precision Setup</h4>
-            <p>From 9m x 9m triangular palm spacing to high-density cocoa grids, we design for maximum output per square meter.</p>
-        </div>
-        <div class="feature-item">
-            <span>🤝</span>
-            <h4>Direct Support</h4>
-            <p>We don't just sell plants; we provide the advisory and market access you need to turn a harvest into a business.</p>
-        </div>
-    </div>
 </div>
 
 <footer>
-    <strong>LEGEND AGRO FARM</strong><br>
-    Nigeria's Choice for Industrial Agricultural Solutions<br>
-    
-    <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=61578922808940" target="_blank">Facebook</a>
-        <a href="https://youtube.com/@legendagrofarm" target="_blank">YouTube</a>
-        <a href="https://www.instagram.com/legendagrofarm" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@legend.agrofarm" target="_blank">TikTok</a>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>Main Navigation</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Our Farm</a></li>
+                <li><a href="products.html">Seedlings Catalog</a></li>
+                <li><a href="services.html">Farming Services</a></li>
+                <li><a href="pricing.html">Price List</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Farmer Resources</h4>
+            <ul>
+                <li><a href="faq.html">Common Questions</a></li>
+                <li><a href="blog.html">Agricultural Blog</a></li>
+                <li><a href="gallery.html">Farm Gallery</a></li>
+                <li><a href="testimonials.html">Customer Stories</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Organization</h4>
+            <ul>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="careers.html">Careers / Jobs</a></li>
+                <li><a href="events.html">Upcoming Events</a></li>
+                <li><a href="contact.html">Office Location</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <p style="font-size: 14px; color: #ccc;">081 5367 3415<br>ayotundesamuel317@gmail.com</p>
+            <div style="margin-top: 15px;">
+                <a href="https://wa.me/2348153673415" style="background:var(--whatsapp); color:white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 12px;">WhatsApp Chat</a>
+            </div>
+        </div>
     </div>
 
-    Call: 081 5367 3415 | Email: ayotundesamuel317@gmail.com<br>
-    © 2026 Legend Agro Farm. All rights reserved.
+    <div class="footer-bottom">
+        © 2026 Legend Agro Farm. All professional files integrated. Committed to nationwide agricultural excellence.
+    </div>
 </footer>
 
 </body>

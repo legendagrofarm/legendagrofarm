@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Legend AGRO Farm — Professional Product Catalog</title>
+<title>Products | Legend AGRO Farm</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
     :root {
@@ -15,43 +15,56 @@
         --whatsapp: #25D366;
     }
 
-    body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background: var(--light); color: #333; line-height: 1.8; }
+    body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background: var(--light); color: #333; line-height: 1.6; }
     
-    /* Navigation Header */
+    /* Header & Navigation */
     .header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1001; }
     .logo { font-weight: 900; font-size: 20px; color: var(--primary); text-decoration: none; }
     .nav a { margin-left: 20px; text-decoration: none; color: var(--primary); font-weight: 700; font-size: 14px; text-transform: uppercase; }
 
-    /* Product Selection Tabs */
-    .product-tabs { display: flex; background: var(--primary); padding: 5px; position: sticky; top: 60px; z-index: 1000; overflow-x: auto; white-space: nowrap; }
-    .tab-btn { background: none; border: none; color: #fff; padding: 15px 20px; cursor: pointer; font-weight: bold; opacity: 0.6; transition: 0.3s; }
+    /* Product Navigation Tabs */
+    .product-tabs { display: flex; background: var(--primary); padding: 5px; position: sticky; top: 58px; z-index: 1000; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .tab-btn { background: none; border: none; color: #fff; padding: 15px 25px; cursor: pointer; font-weight: bold; opacity: 0.6; white-space: nowrap; transition: 0.3s; }
     .tab-btn.active { opacity: 1; border-bottom: 3px solid var(--highlight); }
 
-    .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
-    .product-section { display: none; animation: fadeIn 0.4s; }
-    .product-section.active { display: block; }
+    .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+    .product-section { display: none; }
+    .product-section.active { display: block; animation: fadeIn 0.4s; }
 
-    /* Grid Layout */
-    .grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; margin-bottom: 30px; }
-    .image-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .image-gallery img { width: 100%; height: 100px; object-fit: cover; border-radius: 5px; border: 1px solid #ddd; }
-    .main-img { grid-column: span 4; height: 420px !important; }
-
-    .content-box { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
-    h1 { font-size: 38px; color: var(--primary); margin: 0 0 10px 0; font-weight: 900; }
-    .price-tag { font-size: 28px; font-weight: 900; color: var(--accent); display: block; margin-bottom: 20px; background: #eef5f1; padding: 10px 20px; border-radius: 5px; width: fit-content; }
+    /* Layout System */
+    .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     
-    /* The Long Description Container */
-    .full-text-area { display: none; margin-top: 25px; border-top: 2px solid #f0f0f0; padding-top: 25px; white-space: pre-line; color: #444; }
-    .read-more-btn { background: var(--primary); color: #fff; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
-    .read-more-btn:hover { background: var(--highlight); }
+    .image-side { position: sticky; top: 140px; height: fit-content; }
+    .image-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .main-feat-img { grid-column: span 4; width: 100%; height: 450px; object-fit: cover; border-radius: 12px; }
+    .thumb-img { width: 100%; height: 100px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd; }
 
-    .order-btn { background: var(--whatsapp); color: #fff; text-decoration: none; padding: 20px; border-radius: 8px; display: block; text-align: center; font-weight: 900; font-size: 20px; margin-top: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .details-pane { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    
+    /* PRECISE TEXT PRESERVATION */
+    .full-text-content { 
+        margin-top: 30px; 
+        white-space: pre-wrap; /* Keeps every line break exactly as you pasted */
+        color: #444; 
+        font-size: 16px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+    }
+    
+    h1 { font-size: 34px; color: var(--primary); margin: 0; font-weight: 900; }
+    .price-badge { display: inline-block; padding: 10px 20px; background: #eef5f1; color: var(--accent); font-weight: 900; font-size: 24px; border-radius: 8px; margin: 20px 0; }
+    
+    .order-cta { background: var(--whatsapp); color: white; text-decoration: none; display: block; text-align: center; padding: 20px; border-radius: 10px; font-weight: 900; font-size: 18px; margin-top: 30px; transition: 0.3s; }
+    .order-cta:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37,211,102,0.4); }
 
-    footer { background: var(--primary); color: white; padding: 50px 20px; text-align: center; margin-top: 60px; }
+    footer { background: var(--primary); color: white; padding: 60px 20px; text-align: center; margin-top: 80px; }
 
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } .main-img { height: 300px !important; } }
+    @media (max-width: 900px) { 
+        .grid-layout { grid-template-columns: 1fr; }
+        .image-side { position: relative; top: 0; }
+        .main-feat-img { height: 300px; }
+    }
 </style>
 </head>
 <body>
@@ -60,40 +73,39 @@
     <a href="index.html" class="logo">LEGEND AGRO FARM</a>
     <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="products.html" style="color:var(--highlight)">Products</a>
+        <a href="products.html">Products</a>
         <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
     </nav>
 </header>
 
 <div class="product-tabs">
-    <button class="tab-btn active" onclick="openProduct(event, 'coconut')">Dwarf Wax Coconut</button>
-    <button class="tab-btn" onclick="openProduct(event, 'oilpalm')">Tenera Oil Palm</button>
-    <button class="tab-btn" onclick="openProduct(event, 'cocoa')">CCN-51 Cocoa</button>
-    <button class="tab-btn" onclick="openProduct(event, 'plantain')">Plantain</button>
-    <button class="tab-btn" onclick="openProduct(event, 'banana')">Banana</button>
-    <button class="tab-btn" onclick="openProduct(event, 'cassava')">Cassava</button>
-    <button class="tab-btn" onclick="openProduct(event, 'pineapple')">Pineapple</button>
-    <button class="tab-btn" onclick="openProduct(event, 'yam')">Yam Setts</button>
+    <button class="tab-btn active" onclick="showTab(event, 'coconut')">Dwarf Wax Coconut</button>
+    <button class="tab-btn" onclick="showTab(event, 'oilpalm')">Tenera Oil Palm</button>
+    <button class="tab-btn" onclick="showTab(event, 'cocoa')">CCN-51 Cocoa</button>
+    <button class="tab-btn" onclick="showTab(event, 'plantain')">Plantain</button>
+    <button class="tab-btn" onclick="showTab(event, 'banana')">Banana</button>
+    <button class="tab-btn" onclick="showTab(event, 'cassava')">Cassava</button>
+    <button class="tab-btn" onclick="showTab(event, 'pineapple')">Pineapple</button>
+    <button class="tab-btn" onclick="showTab(event, 'yam')">Yam Setts</button>
 </div>
 
 <div class="container">
 
     <section id="coconut" class="product-section active">
-        <div class="grid-2">
-            <div class="image-gallery">
-                <img src="images/COCONUT1.JPG" class="main-img">
-                <img src="images/COCONUT2.JPG"> <img src="images/COCONUT3.JPG">
-                <img src="images/COCONUT4.JPG"> <img src="images/COCONUT5.JPG">
+        <div class="grid-layout">
+            <div class="image-side">
+                <div class="image-container">
+                    <img src="images/COCONUT1.JPG" class="main-feat-img">
+                    <img src="images/COCONUT2.JPG" class="thumb-img">
+                    <img src="images/COCONUT3.JPG" class="thumb-img">
+                    <img src="images/COCONUT4.JPG" class="thumb-img">
+                    <img src="images/COCONUT5.JPG" class="thumb-img">
+                </div>
             </div>
-            <div class="content-box">
+            <div class="details-pane">
                 <h1>Dwarf Wax 1 Coconut</h1>
-                <span class="price-tag">₦5,000 / Seedling</span>
-                <p>Investing in a coconut plantation is a marathon, not a sprint, but the Dwarf Wax 1 variety is designed to get you to the finish line faster.</p>
-                <button class="read-more-btn" onclick="toggleFull(this)">View Full Investment Guide & FAQ</button>
-                
-                <div class="full-text-area">
-Investing in a coconut plantation is a marathon, not a sprint, but the Dwarf Wax 1 variety is designed to get you to the finish line faster and with a much higher yield. This isn't just another seedling; it is a precision-engineered agricultural asset for the serious investor.
+                <div class="price-badge">#5,000 per seedling</div>
+                <div class="full-text-content">Investing in a coconut plantation is a marathon, not a sprint, but the Dwarf Wax 1 variety is designed to get you to the finish line faster and with a much higher yield. This isn't just another seedling; it is a precision-engineered agricultural asset for the serious investor.
 
 The Dwarf Wax 1 Advantage
 The Dwarf Wax 1 is a game-changer for Nigerian soil. Unlike the traditional tall varieties that take nearly a decade to produce, this dwarf variety is aggressive and efficient.
@@ -113,123 +125,395 @@ The Dwarf Wax 1 is remarkably resilient, but its success depends on giving it th
 The Math for Your Land:
 One Acre: You will require approximately 64 seedlings.
 One Hectare: You will require approximately 156 seedlings.
-At #5,000 per seedling, your initial capital outlay is positioned against a lifespan of 40 to 50 years of consistent production.
+At #5,000 per seedling, your initial capital outlay is positioned against a lifespan of 40 to 50 years of consistent production. When you calculate the ROI over five decades, the entry cost becomes negligible.
 
 Why Investors and Farmers are Choosing This
 Agriculture is the new oil, but only if you choose the right "machinery." The Dwarf Wax 1 is that machinery.
+For the Farmer, it offers ease of management and a quicker path to subsistence and profit. For the Investor, it offers a tangible, appreciating asset that produces a high-demand commodity with minimal recurring overhead once established.
+
+We aren't just selling you a plant; we are providing the foundation for a multi-generational income stream. If you are ready to move away from speculative farming and into high-performance agribusiness, the Dwarf Wax 1 is your starting point.
+
+Secure Your Plantation’s Future
+The best time to plant a coconut grove was three years ago. The second best time is today. Don’t settle for substandard seedlings that waste your land and your time. Invest in the Dwarf Wax 1 and start your journey toward a high-yield, sustainable harvest.
 
 F. A. Q
-Why should I pay #5,000 for one seedling?
-You aren't paying for a nut; you are paying for time and genetics. A "cheap" seedling that takes 8 years to fruit or dies from poor resistance costs you hundreds of thousands in lost time and labor.
 
-The Dwarf Wax 1 Planting Guide:
-Phase 1: Land Preparation - Clearing and Staking (8m x 8m). Holes 60cm x 60cm x 60cm.
-Phase 2: Soil Enrichment - Mix topsoil with 10kg poultry manure.
-Phase 3: Transplanting - Remove polybag carefully. Top of nut should be level with surface.
-Phase 4: Post-Planting Care - Mulching, Ring Weeding (1m radius), and Pest Monitoring.
-                </div>
-                <a href="https://wa.me/2348153673415?text=Order Dwarf Wax 1 Coconut" class="order-btn">Order Now via WhatsApp</a>
+Why should I pay #5,000 for one seedling?
+You aren't paying for a nut; you are paying for time and genetics. A "cheap" seedling that takes 8 years to fruit or dies from poor resistance costs you hundreds of thousands in lost time and labor. The Dwarf Wax 1 is a premium asset that pays for itself through early fruiting and high-volume yields.
+
+How difficult is it to maintain these trees?
+The Dwarf Wax 1 is hardy, but it isn't "set and forget." It requires adequate watering during the first two years and a consistent organic or NPK fertilizer regimen. Because they are short, monitoring for beetles or leaf blight is easy and can be done from the ground.
+
+Can I intercrop with other plants?
+Yes. During the first 3 years, the 8m x 8m spacing leaves plenty of room for short-term crops like pineapples, peppers, or legumes. This allows you to generate income from your land while the coconuts are maturing.
+
+How do you handle delivery?
+We have a logistics system designed to transport live seedlings without damaging the root ball or the shoot. Whether you are planting one acre or fifty hectares, we ensure the plants arrive in transplant-ready condition.
+
+What is the "Wax" variety known for?
+The "Wax" (or Macapuno-style) characteristic refers to the thickness and texture of the meat. It is denser and more flavorful than standard coconuts, making it the preferred choice for processors and premium food vendors. This translates to higher gate prices for you as a farmer.
+
+Why Buy From Us?
+We don’t just ship seedlings; we provide the blueprint for success. From our rigorous nursery selection to our post-purchase support, we ensure that your investment in the Dwarf Wax 1 actually yields the results we promise.
+
+*The Dwarf Wax 1 Planting Guide: From Delivery to Harvest* Buying elite seedlings is only the first half of the equation. The second half is execution. Follow these technical steps to ensure a 100% survival rate for your plantation.
+
+Phase 1: Land Preparation
+Before your seedlings arrive, your land must be ready.
+Clearing: Remove heavy bush and stumps.
+Staking: Mark out your points using an 8m x 8m spacing. We recommend a triangular pattern to maximize sunlight and fit more trees per hectare.
+Holing: Dig holes of 60cm x 60cm x 60cm. Do not skip this. A large hole ensures the soil is loose enough for young roots to spread rapidly.
+
+Phase 2: Soil Enrichment
+Don't just put the seedling into "dead" soil.
+Mix the topsoil you dug out with about 10kg of well-cured poultry manure or high-quality compost.
+Add a small amount of NPK fertilizer if the soil is particularly sandy or depleted.
+Fill the hole back up halfway with this enriched mixture before planting.
+
+Phase 3: The Transplanting Process
+This is the most critical stage.
+Timing: Ideally, plant at the onset of the rainy season. If planting in the dry season, you must have a functional irrigation or manual watering system in place.
+Placement: Remove the polybag carefully without breaking the soil ball. Place the seedling in the center of the hole.
+
+Depth: Ensure the top of the nut is slightly covered or level with the soil surface. Planting too deep causes "heart rot," while planting too shallow leads to instability.
+Firming: Firm the soil around the base to eliminate air pockets.
+
+Phase 4: Post-Planting Care
+The first 12 months determine the life of the tree.
+Watering: For the first two years, ensure the plant receives adequate moisture, especially during the dry months.
+
+Mulching: Use dry grass or coconut husks around the base of the tree to retain moisture and suppress weeds. Keep the mulch a few inches away from the actual trunk to prevent fungal growth.
+
+Ring Weeding: Keep a 1-meter radius around each seedling free from weeds. Competition for nutrients will stunt your dwarf variety.
+Pest Monitoring: Watch for the Rhinoceros beetle or leaf miners. Early detection means easy control.
+
+Phase 5: The Countdown to Harvest
+Between month 30 and 36, you will notice the first spathes (flowers) appearing. Because this is the Dwarf Wax 1, the fruits will be within arm's reach. Your focus now shifts from growth to production maintenance.</div>
+                <a href="https://wa.me/2348153673415" class="order-cta">Order Coconut Seedlings</a>
             </div>
         </div>
     </section>
 
     <section id="oilpalm" class="product-section">
-        <div class="grid-2">
-            <div class="image-gallery">
-                <img src="images/OILPALM1.JPG" class="main-img">
-                <img src="images/OILPALM2.JPG"> <img src="images/OILPALM3.JPG">
-                <img src="images/OILPALM4.JPG"> <img src="images/OILPALM5.JPG">
+        <div class="grid-layout">
+            <div class="image-side">
+                <div class="image-container">
+                    <img src="images/OILPALM1.JPG" class="main-feat-img">
+                    <img src="images/OILPALM2.JPG" class="thumb-img">
+                    <img src="images/OILPALM3.JPG" class="thumb-img">
+                    <img src="images/OILPALM4.JPG" class="thumb-img">
+                    <img src="images/OILPALM5.JPG" class="thumb-img">
+                </div>
             </div>
-            <div class="content-box">
+            <div class="details-pane">
                 <h1>Tenera Oil Palm Hybrid</h1>
-                <span class="price-tag">₦1,500 / Seedling</span>
-                <p>The Tenera variety is a high-performance hybrid—a cross between the Dura and Pisifera varieties—engineered for oil volume.</p>
-                <button class="read-more-btn" onclick="toggleFull(this)">View Full Investment Guide & FAQ</button>
-                
-                <div class="full-text-area">
-If you are serious about palm oil production, the Tenera variety is the only logical choice. While wild varieties take up to seven years to produce, the Tenera is built for speed and volume.
+                <div class="price-badge">#1,500 per seedling</div>
+                <div class="full-text-content">If you are serious about palm oil production, the Tenera variety is the only logical choice. It is a high-performance hybrid—a cross between the Dura and Pisifera varieties—engineered specifically to maximize oil extraction rates.
+While wild varieties take up to seven years to produce and offer thin pulp, the Tenera is built for speed and volume.
 
-Features and Benefits:
-High Oil Content: Thick mesocarp (pulp) and a small nut.
-Early Maturity: Fruiting within 3 years.
-High Extraction Rate: Yields significantly more Crude Palm Oil (CPO).
+Features and Benefits
+High Oil Content: The Tenera is characterized by a thick mesocarp (pulp) and a small nut. This means more oil per bunch compared to any other variety.
+Early Maturity: Under good management, these seedlings begin fruiting within 3 years. You stop spending and start earning much sooner.
+High Extraction Rate: For every ton of Fresh Fruit Bunches (FFB) harvested, Tenera yields significantly more Crude Palm Oil (CPO), making it the favorite for industrial millers.
+Uniform Growth: Our hybrid seeds ensure a uniform canopy, making plantation management and harvesting schedules predictable and efficient.
 
-Our Nursery and Quality Control:
-We monitor the pre-nursery and main nursery stages aggressively, removing "runts" or "flat-leaf" seedlings. At #1,500 per seedling, you are paying for a pre-vetted survivor.
+Our Nursery and Quality Control
+A palm tree can live for 25 to 30 years. If you start with a weak seedling, you are locking in 30 years of failure.
+In our nursery, we prioritize culling. We monitor the pre-nursery and main nursery stages aggressively, removing "runts" or "flat-leaf" seedlings that don't show the genetic vigor required for high yield. At #1,500 per seedling, you are paying for a pre-vetted survivor that is ready to dominate your soil.
+
+Spacing and Land Requirements
+To maximize yield, Oil Palm requires specific geometry. We use the 9m x 9m Triangular Layout. This layout is superior to a square grid because it allows for more trees per hectare while ensuring every leaf gets maximum sunlight exposure.
 
 The Math for Your Investment:
-One Acre: Approx 60 seedlings.
-One Hectare: Approx 150 seedlings (9m x 9m Triangular).
-At #1,500 per seedling, the entry cost for a hectare is #225,000.
+One Acre: You will require approximately 60 seedlings.
+One Hectare: You will require approximately 150 seedlings.
+At #1,500 per seedling, the entry cost for a hectare is #225,000. For an asset that produces for nearly three decades, this is one of the most secure placements for capital in the agricultural sector today.
 
-Executive FAQ:
-What is the IRR? Oil palm begins generating cash flow in Year 3 and peak maturity by Year 7.
-Why the #1,500 price point? You are paying for genetic certainty. Seedlings at lower price points often suffer from "genetic leakage."
+Why the Tenera is an Ideal Choice
+The global demand for palm oil—for cooking, cosmetics, and biofuels—is insatiable.
+For the Farmer, Tenera provides a consistent, bi-weekly harvest once established, creating a "salary-style" income. For the Investor, it represents a hedge against inflation. While the value of currency fluctuates, the value of high-grade palm oil only trends upward.
+Planting Tenera is not just farming; it is setting up a biological factory.
 
-The Tenera Oil Palm Planting Guide:
-Phase 1: Site Selection - Loamy soil, avoid waterlogging.
-Phase 2: Layout - 9m x 9m Triangular Method. Holes 60cm x 60cm x 60cm.
-Phase 3: Transplant - Collar should be level with ground. Mix topsoil with 250g Rock Phosphate.
-Phase 4: Aftercare - Mulching with fruit bunches, Castration (Years 2-3) to build trunk strength.
-                </div>
-                <a href="https://wa.me/2348153673415?text=Order Tenera Oil Palm" class="order-btn">Secure Your Seedlings</a>
+Stop Waiting, Start Planting
+The global palm oil market doesn't wait for anyone. Every season you delay is a year of harvest you can never recover. At #1,500 per seedling, the cost of entry is the lowest it will ever be. Secure your Tenera seedlings today and turn your land into a high-performance oil mill.
+
+*Executive FAQ: The Tenera Investment*
+What is the Internal Rate of Return (IRR) on a Tenera plantation?
+Oil palm is one of the highest-yielding vegetable oil crops globally. With the Tenera hybrid, you are looking at an asset that begins generating cash flow in Year 3 and reaches peak maturity by Year 7. Given the low maintenance costs and the rising global price of Crude Palm Oil (CPO), the IRR consistently outperforms traditional fixed-income assets and real estate over a 20-year horizon.
+
+Why is the #1,500 price point justified for this seedling?
+In plantation English: you are paying for genetic certainty. Seedlings at lower price points often suffer from "genetic leakage," where they fail to produce the expected oil extraction ratio (OER). A #1,500 investment ensures you are planting true Tenera hybrids with a thin shell and thick mesocarp. If a seedling fails to produce at peak capacity, the "savings" you made at purchase will cost you millions in lost oil revenue over the tree's 25-year lifespan.
+
+How does this variety hedge against inflation?
+Palm oil is a globally traded commodity priced in relation to international markets. As the cost of living and currency fluctuations occur, the price of CPO typically adjusts upward. By owning the production source (the trees), you own a "hard asset" that produces a "liquid commodity," protecting your capital from devaluations.
+
+What is the "Yield Gap" risk?
+The biggest risk to an investor is the gap between potential yield and actual yield. We mitigate this at the nursery level. By culling weak phenotypes and providing only the most vigorous seedlings, we ensure your plantation hits the target of 15–18 tons of Fresh Fruit Bunches (FFB) per hectare. Lower-quality seedlings often gap at 5–8 tons, which can be the difference between a profitable venture and a write-off.
+
+What is the exit strategy or terminal value of this investment?
+A mature, well-spaced (9m x 9m) Tenera plantation is a highly liquid real estate asset. Should you choose to sell the plantation in Year 10, the valuation is based not just on the land, but on the Net Present Value (NPV) of the remaining 15+ years of harvest. You are building an income-generating business that can be sold to institutional investors or agro-processors.
+
+The ROI Snapshot
+When you plant 150 seedlings per hectare, you are installing a biological production line. At maturity, each hectare is designed to produce high-tonnage yields that feed directly into the industrial supply chain. This is a high-barrier-to-entry business; once your trees are up, you have a competitive advantage that latecomers cannot quickly replicate.
+
+*The Tenera Oil Palm Planting Guide: Precision Agriculture*
+Success in palm oil production is determined in the first 12 months. Follow these steps to ensure your seedlings transition perfectly to the field.
+
+Phase 1: Site Selection and Timing
+Soil: Oil palms thrive in deep, well-drained loamy soils. Avoid waterlogged areas; while they love water, "wet feet" will kill the roots.
+Timing: The best time to plant is at the onset of the steady rainy season (usually April or May in Nigeria). This allows the roots to establish before the harsh dry season begins.
+
+Phase 2: Professional Land Layout
+The 9m x 9m Triangular Method: This is the industry standard. Unlike square planting, the triangular layout gives each tree exactly equal space in all directions, reducing canopy overlap and maximising sunlight for photosynthesis.
+Staking: Mark every point clearly. Precision at this stage makes harvesting and mechanised maintenance much easier in the future.
+The Hole: Dig holes measuring 60cm x 60cm x 60cm. A deep hole allows you to break the subsoil, making it easier for the young taproot to penetrate.
+
+Phase 3: The Transplant
+The Polybag: Use a sharp blade to slice the bottom and sides of the polybag. Do not disturb the soil ball. If the soil around the roots breaks, the seedling will suffer transplant shock.
+Depth: The collar of the seedling (where the roots meet the stem) should be exactly level with the ground surface.
+Too deep: The palm will rot.
+Too shallow: The "exposed" roots will dry out and the tree will be unstable.
+Filling: Fill the hole with topsoil mixed with organic manure or 250g of Rock Phosphate to encourage rapid root development.
+
+Phase 4: Immediate Aftercare
+Mulching: This is non-negotiable. Use empty fruit bunches (EFB) or dry organic matter around the base. This keeps the soil cool and moist.
+Castration (Year 2-3): As the Tenera begins to produce its first flowers, we recommend removing them for the first few months. This redirects the plant's energy into becoming a stronger, thicker tree before it starts the heavy work of carrying fruit.
+Ring Weeding: Maintain a clean circle (the "palm circle") of at least 1.5 to 2 meters around each tree to ensure nutrients go to the palm, not the weeds.
+
+Phase 5: Protection
+Protect your investment from rodents. In areas with high pest pressure, installing wire mesh collars around the base of young palms can prevent rodents from eating the soft growing point of the tree.</div>
+                <a href="https://wa.me/2348153673415" class="order-cta">Order Oil Palm Seedlings</a>
             </div>
         </div>
     </section>
 
     <section id="cocoa" class="product-section">
-        <div class="grid-2">
-            <div class="image-gallery">
-                <img src="images/COCOA1.JPG" class="main-img">
-                <img src="images/COCOA2.JPG"> <img src="images/COCOA3.JPG">
-                <img src="images/COCOA4.JPG"> <img src="images/COCOA5.JPG">
+        <div class="grid-layout">
+            <div class="image-side">
+                <div class="image-container">
+                    <img src="images/COCOA1.JPG" class="main-feat-img">
+                    <img src="images/COCOA2.JPG" class="thumb-img">
+                    <img src="images/COCOA3.JPG" class="thumb-img">
+                    <img src="images/COCOA4.JPG" class="thumb-img">
+                    <img src="images/COCOA5.JPG" class="thumb-img">
+                </div>
             </div>
-            <div class="content-box">
+            <div class="details-pane">
                 <h1>CCN-51 Industrial Cocoa</h1>
-                <span class="price-tag">₦1,000 / Seedling</span>
-                <p>CCN-51 is the undisputed leader for large-scale operations. It produces more beans per hectare than any other type in the world.</p>
-                <button class="read-more-btn" onclick="toggleFull(this)">View Full Investment Guide & FAQ</button>
-                
-                <div class="full-text-area">
-Features and Benefits:
-Explosive Productivity: High-input, high-output variety.
-Early Fruiting: Maturity in as little as 18 to 24 months.
-Fungal Resistance: Resilience against Witches’ Broom and Black Pod.
+                <div class="price-badge">#1,000 per seedling</div>
+                <div class="full-text-content">When it comes to commercial cocoa production, the CCN-51 (Colección Castro Naranjal) is the undisputed leader for large-scale operations. It was developed to solve the two biggest problems in cocoa farming: low yield and disease vulnerability.
+If you are looking for a variety that produces more beans per hectare than any other type in the world, the CCN-51 is your primary asset.
+
+Features and Benefits
+Explosive Productivity: The CCN-51 is a "high-input, high-output" variety. It is capable of producing several times the yield of traditional varieties, making it the choice for farmers who treat their plantation like a factory.
+Early Fruiting: While traditional cocoa can take 5 years to reach maturity, CCN-51 begins fruiting in as little as 18 to 24 months.
+Fungal Resistance: This variety was specifically bred for its resilience against diseases like Witches’ Broom and Black Pod, which often wipe out entire harvests of more sensitive varieties.
+Consistent Quality: The pods are large, and the beans are uniform, allowing for easier processing and a predictable supply for the chocolate and confectionery industries.
+
+Our Nursery and Selection Process
+Cocoa is sensitive in its infancy. Our nursery process is focused on creating "shock-resistant" seedlings. At #1,000 per seedling, we ensure that each plant has been hardened off and transitioned from a controlled environment to real-world conditions. We eliminate any seedlings showing signs of genetic stunting or weak grafting, ensuring that the 450 plants you put in your acre are all high-performers.
+
+Spacing and Land Requirements
+To achieve the massive yields CCN-51 is famous for, we utilize a 3m x 3m Linear Layout. This density ensures the canopy closes quickly, suppressing weed growth and maintaining the humidity cocoa trees love.
 
 The Math for Your Investment:
-One Acre: 450 seedlings.
-One Hectare: 1,111 seedlings (3m x 3m Linear Layout).
-At #1,000 per seedling, your investment per hectare is #1,111,000.
+One Acre: You will require 450 seedlings.
+One Hectare: You will require 1,111 seedlings.
+At #1,000 per seedling, your investment per hectare is #1,111,000. While the initial plant count is higher than oil palm or coconut, the speed of your first harvest and the sheer volume of beans produced makes this one of the fastest ROI (Return on Investment) profiles in the agricultural sector.
 
-F.A.Q:
-Flavor Profile? Modern fermentation meets international standards for chocolate solids.
-Why the high plant count? Maximizes the "leaf area index" for total sunlight capture.
-Disease handling? Requires significantly less chemical intervention than older varieties.
+Why CCN-51 is the Investor’s Choice
+Cocoa is a global commodity with prices dictated by international markets. The CCN-51 is the "high-performance engine" of the cocoa industry.
+For the Farmer, it means more bags per hectare and less money spent on fungicides. For the Investor, it means a rapid transition from capital expenditure to revenue generation. In a world where cocoa demand is rising and supply is often volatile, owning a high-yield CCN-51 plantation is a position of extreme market strength.
 
-CCN-51 Cocoa Planting Guide:
-Phase 1: Shade Management - Plant plantains 6 months before cocoa.
-Phase 2: Layout - 3m x 3m Grid. Holes 40cm x 40cm x 40cm.
-Phase 3: Transplant - Handle sensitive taproot with care. Transplant during cool hours.
-Phase 4: Growth - Strict NPK fertilization and single-stem pruning for the first 60cm.
-                </div>
-                <a href="https://wa.me/2348153673415?text=Order CCN-51 Cocoa" class="order-btn">Order Now</a>
+F.A.Q
+Is the flavor profile of CCN-51 acceptable to major buyers?
+While traditionalists focus on "fine-flavor" varieties that yield very little, the global chocolate industry runs on volume. Modern fermentation techniques have proven that CCN-51 produces high-quality butter and solids that meet the rigorous standards of international processors. If you want a consistent, bankable harvest that big buyers can rely on, this is your variety.
+
+Why is the plant count so high (1,111 per hectare)?
+CCN-51 is designed for high-density planting. By using a 3m x 3m linear layout, we maximize the "leaf area index," ensuring that every inch of your land is capturing sunlight and converting it into cocoa pods. High density leads to an earlier canopy closure, which dramatically reduces your long-term weeding and maintenance costs.
+
+Can I really expect a harvest in less than two years?
+Yes. Under optimal management—specifically consistent irrigation and proper fertilization—the CCN-51 is biologically engineered to begin fruiting between months 18 and 24. This rapid maturity reduces your "pre-productive" capital burn and gets your plantation into a cash-positive state years ahead of traditional cocoa farms.
+
+What about the #1,000 price point?
+Think of it as a performance fee. A cheaper, unverified seedling might save you money today, but if it takes four years to fruit or dies from Black Pod disease, that "saving" becomes a massive loss. Our #1,000 seedlings are vetted for vigor and disease resistance, ensuring that your 1,111 plants per hectare actually reach maturity and perform.
+
+How does CCN-51 handle disease compared to local varieties?
+The "51" in CCN-51 represents its pedigree in resistance. It was bred specifically to stand firm against the fungal pressures that plague West African cocoa. While no plant is 100% immune, the CCN-51 requires significantly less chemical intervention than older varieties, lowering your operational costs and increasing your net margins.
+
+The Bottom Line
+Agriculture is moving toward industrial efficiency. Planting CCN-51 is the difference between having a "cocoa farm" and running a "cocoa business." You are choosing the variety that maximizes output per square meter.
+
+*The CCN-51 Cocoa Planting Guide: High-Density Management*
+The CCN-51 is a high-performance asset. To see a return on your investment within 24 months, you must follow these technical protocols from day one.
+
+Phase 1: Site Preparation and Shade Management
+Soil Requirements: Cocoa thrives in deep, well-drained soil rich in organic matter. Ensure the site has good water retention but zero waterlogging.
+Temporary Shade: Young cocoa seedlings are sensitive to direct, harsh sunlight. We recommend planting temporary shade crops like plantains or bananas six months before the cocoa. This protects the young CCN-51 and provides a secondary income stream.
+
+Phase 2: Precise Linear Layout
+The 3m x 3m Grid: Accuracy is vital. Use a lining rope to ensure every tree is exactly 3 meters from its neighbour in a straight line. This creates the "tunnel" effect needed for air circulation and easy harvesting.
+The Hole: Dig holes of 40cm x 40cm x 40cm.
+Soil Priming: Mix the excavated topsoil with 5kg of cured poultry manure and 200g of Phosphate fertiliser. Fill the hole back up slightly so the seedling sits at the correct height.
+
+Phase 3: The Transplanting Technique
+Handle with Care: The CCN-51 has a sensitive taproot. Slice the polybag vertically and remove it without shaking or breaking the soil ball.
+Setting the Plant: Place the seedling so the soil level of the bag matches the ground level. Firm the soil around it to remove air pockets that could cause root rot.
+Timing: Transplant only during the cool of the morning or late afternoon to minimise moisture loss and heat stress.
+
+Phase 4: The First 24 Months (The Growth Phase)
+Nutrition: The CCN-51 is a "hungry" variety. Because it grows and fruits so fast, it requires a strict fertilisation schedule. Apply NPK in small, frequent doses rather than one large application.
+Pruning: This is the most important step for CCN-51. You must prune to maintain a "single stem" for the first 50-60cm before it branches. Pruning ensures the energy goes into fruit production and keeps the tree at a manageable height.
+Weed Control: In a 3m x 3m layout, you must keep the "cocoa floor" clean. Once the canopy closes (around year 3), the shade will naturally prevent most weed growth.
+
+Phase 5: Pest and Disease Monitoring
+While CCN-51 is resilient, you must stay vigilant.
+Mirids: Watch for these sap-sucking insects during the dry season.
+Black Pod: Even with resistance, ensure good drainage and airflow through proper pruning to minimise fungal pressure during heavy rains.
+
+The Goal: Early Canopy Closure
+By following this guide, your CCN-51 trees will touch branches by the end of Year 3. This "canopy closure" creates a self-sustaining microclimate that protects the soil, retains moisture, and signals the beginning of your peak production years.</div>
+                <a href="https://wa.me/2348153673415" class="order-cta">Order Cocoa Seedlings</a>
             </div>
         </div>
     </section>
 
     <section id="plantain" class="product-section">
-        <div class="grid-2">
-            <div class="image-gallery">
-                <img src="images/PLANTAIN1.JPG" class="main-img">
-                <img src="images/PLANTAIN2.JPG"> <img src="images/PLANTAIN3.JPG">
-                <img src="images/PLANTAIN4.JPG"> <img src="images/PLANTAIN5.JPG">
+        <div class="grid-layout">
+            <div class="image-side">
+                <div class="image-container">
+                    <img src="images/PLANTAIN1.JPG" class="main-feat-img">
+                    <img src="images/PLANTAIN2.JPG" class="thumb-img">
+                    <img src="images/PLANTAIN3.JPG" class="thumb-img">
+                    <img src="images/PLANTAIN4.JPG" class="thumb-img">
+                    <img src="images/PLANTAIN5.JPG" class="thumb-img">
+                </div>
             </div>
-            <div class="content-box">
+            <div class="details-pane">
                 <h1>Elephant Giant Plantain</h1>
-                <span class="price-tag">₦500 / Sucker</span>
-                <p>High-quality hybrid plantain suckers, vigorous growth, early fruiting, superior size, ideal for commercial cultivation.</p>
-                <p>These plantain suckers provide high productivity with strong pseudostems and uniform fruit bunches. Farmers enjoy early fruiting, minimal pest issues, and adaptability across soil types. Ideal for commercial or backyard farms, they allow efficient harvesting and high market demand. Intercropping improves soil fertility and diversifies income.</p>
-                <a href="https://wa.me/2348153673415?text=Order Plantain" class="order-btn">Order Now</a>
+                <div class="price-badge">#500 per sucker</div>
+                <div class="full-text-content">These high-quality hybrid plantain suckers are selected for vigorous growth, early fruiting, and superior bunch size. Ideal for commercial cultivation or backyard farming, the Elephant Giant provides high productivity with strong pseudostems.
+
+Farmers enjoy:
+- Early fruiting (typically within 9-11 months)
+- Minimal pest issues through pre-vetted suckers
+- Adaptability across various Nigerian soil types
+- High market demand due to fruit size and quality.
+
+Intercropping plantains with cocoa or coconut can improve soil fertility and provide a secondary income stream while permanent crops mature. Our suckers are treated for soil-borne pests before delivery.</div>
+                <a href="https://wa.me/2348153673415" class="order-cta">Order Plantain Suckers</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="banana" class="product-section">
+        <div class="grid-layout">
+            <div class="image-side">
+                <div class="image-container">
+                    <img src="images/BANANA1.JPG" class="main-feat-img">
+                    <img src="images/BANANA2.JPG" class="thumb-img">
+                    <img src="images/BANANA3.JPG" class="thumb-img">
+                    <img src="images/BANANA4.JPG" class="thumb-img">
+                    <img src="images/BANANA5.JPG" class="thumb-img">
+                </div>
+            </div>
+            <div class="details-pane">
+                <h1>Hybrid Dwarf Banana</h1>
+                <div class="price-badge">#500 per sucker</div>
+                <div class="full-text-content">Our Dwarf Banana suckers are engineered for high-density planting and rapid returns. Unlike traditional tall varieties, these stay at a manageable height, reducing wind damage and making harvest easy.
+
+Key Benefits:
+- Continuous fruiting for reliable cash flow
+- Dense planting allowed (excellent land use efficiency)
+- High resistance to common banana wilt and pests
+- Superior sweetness and shelf life for the fresh market.
+
+These suckers integrate perfectly into mixed-cropping systems and respond excellently to organic manure and irrigation.</div>
+                <a href="https://wa.me/2348153673415" class="order-cta">Order Banana Suckers</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="cassava" class="product-section">
+        <div class="grid-layout">
+            <div class="image-side">
+                <div class="image-container">
+                    <img src="images/CASSAVA1.JPG" class="main-feat-img">
+                    <img src="images/CASSAVA2.JPG" class="thumb-img">
+                    <img src="images/CASSAVA3.JPG" class="thumb-img">
+                    <img src="images/CASSAVA4.JPG" class="thumb-img">
+                    <img src="images/CASSAVA5.JPG" class="thumb-img">
+                </div>
+            </div>
+            <div class="details-pane">
+                <h1>Cassava Stems (TME 419)</h1>
+                <div class="price-badge">#1,500 per bundle</div>
+                <div class="full-text-content">The TME 419 is the gold standard for cassava processing in West Africa. Known for its high starch content and upright growth, it is the variety of choice for garri, starch, and flour producers.
+
+Product Specs:
+- High starch yield per ton of roots
+- Extreme disease resistance (Mosaic virus resistant)
+- Early maturity (Harvest-ready in 10-12 months)
+- Upright growth (Easier weeding and harvesting).
+
+Each bundle contains high-quality, mature stems ready for immediate planting. Ideal for industrial-scale supply chains.</div>
+                <a href="https://wa.me/2348153673415" class="order-cta">Order Cassava Bundles</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pineapple" class="product-section">
+        <div class="grid-layout">
+            <div class="image-side">
+                <div class="image-container">
+                    <img src="images/PINEAPPLE1.JPG" class="main-feat-img">
+                    <img src="images/PINEAPPLE2.JPG" class="thumb-img">
+                    <img src="images/PINEAPPLE3.JPG" class="thumb-img">
+                    <img src="images/PINEAPPLE4.JPG" class="thumb-img">
+                    <img src="images/PINEAPPLE5.JPG" class="thumb-img">
+                </div>
+            </div>
+            <div class="details-pane">
+                <h1>Pineapple Suckers</h1>
+                <div class="price-badge">#400 per sucker</div>
+                <div class="full-text-content">Start your pineapple plantation with healthy, disease-free suckers. Selected for high sugar content and uniform fruit size, these suckers are suitable for both fresh markets and juice processing.
+
+Investment Advantages:
+- Fast growth and high survival rates
+- Adaptability to sandy or loamy soils
+- Low maintenance once established
+- High return on investment through side-sucker multiplication.
+
+Our suckers provide a solid foundation for sustainable, high-yield pineapple farming.</div>
+                <a href="https://wa.me/2348153673415" class="order-cta">Order Pineapple Suckers</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="yam" class="product-section">
+        <div class="grid-layout">
+            <div class="image-side">
+                <div class="image-container">
+                    <img src="images/YAM1.JPG" class="main-feat-img">
+                    <img src="images/YAM2.JPG" class="thumb-img">
+                    <img src="images/YAM3.JPG" class="thumb-img">
+                    <img src="images/YAM4.JPG" class="thumb-img">
+                    <img src="images/YAM5.JPG" class="thumb-img">
+                </div>
+            </div>
+            <div class="details-pane">
+                <h1>Treated Yam Setts</h1>
+                <div class="price-badge">#700 per sett</div>
+                <div class="full-text-content">Achieve uniform sprouts and bumper harvests with our professionally treated yam setts. We take the guesswork out of yam farming by providing disease-free planting material.
+
+Why choose Treated Setts:
+- Early sprouting (Uniform field establishment)
+- Pre-treated against nematodes and rot
+- Higher tuber weight at harvest
+- Consistent quality for export or local industrial markets.
+
+Ideal for large-scale commercial mounds or ridges. Ensure your yam business starts with the right foundation.</div>
+                <a href="https://wa.me/2348153673415" class="order-cta">Order Yam Setts</a>
             </div>
         </div>
     </section>
@@ -238,12 +522,12 @@ Phase 4: Growth - Strict NPK fertilization and single-stem pruning for the first
 
 <footer>
     <strong>LEGEND AGRO FARM</strong><br>
-    Call: 081 5367 3415 | WhatsApp: +2348153673415<br>
-    <em>Expert delivery and quality guaranteed.</em>
+    Nigeria's Choice for Industrial Agricultural Foundations.<br>
+    Call: 081 5367 3415 | Email: ayotundesamuel317@gmail.com
 </footer>
 
 <script>
-function openProduct(evt, productName) {
+function showTab(evt, tabId) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("product-section");
     for (i = 0; i < tabcontent.length; i++) {
@@ -252,23 +536,12 @@ function openProduct(evt, productName) {
     }
     tablinks = document.getElementsByClassName("tab-btn");
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].classList.remove("active");
     }
-    document.getElementById(productName).style.display = "block";
-    document.getElementById(productName).classList.add("active");
-    evt.currentTarget.className += " active";
-    window.scrollTo(0, 0);
-}
-
-function toggleFull(btn) {
-    const content = btn.nextElementSibling;
-    if (content.style.display === "block") {
-        content.style.display = "none";
-        btn.innerText = "View Full Investment Guide & FAQ";
-    } else {
-        content.style.display = "block";
-        btn.innerText = "Collapse Details";
-    }
+    document.getElementById(tabId).style.display = "block";
+    document.getElementById(tabId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+    window.scrollTo(0, 0); // Reset scroll to top when changing products
 }
 </script>
 

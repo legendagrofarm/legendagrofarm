@@ -4,188 +4,199 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legend AGRO Farm — Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f5f7fa; }
-.header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-.header .logo { font-weight:700; font-size:20px; color:#2c5e1a; }
-.nav a { margin:0 10px; text-decoration:none; color:#2c5e1a; font-weight:500; transition:0.3s; }
-.nav a:hover, .nav a.active { color:#4CAF50; }
-.hero { text-align:center; padding:40px 20px; }
-.hero h1 { font-size:32px; color:#2c5e1a; margin-bottom:15px; }
-.hero p { font-size:16px; color:#333; max-width:800px; margin:auto; line-height:1.6; }
-.products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; padding:20px; max-width:1200px; margin:auto; }
-.product-card { background:#fff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:20px; text-align:left; transition:0.3s; }
-.product-card:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.15); }
-.product-card img { width:100%; height:220px; object-fit:cover; border-radius:10px; margin-bottom:15px; }
-.product-card h3 { font-size:20px; color:#156b2c; margin-bottom:10px; text-align:center; }
-.product-card p { font-size:14px; color:#333; line-height:1.6; margin-bottom:10px; }
-.product-card .price { font-weight:bold; color:#2c5e1a; margin-bottom:10px; text-align:center; }
-.product-card .whatsapp-btn { background:#25D366; color:#fff; text-decoration:none; padding:8px 15px; border-radius:5px; display:block; font-weight:bold; text-align:center; transition:0.3s; }
-.product-card .whatsapp-btn:hover { background:#128C7E; }
-.read-more { color:#156b2c; cursor:pointer; font-weight:bold; text-align:left; display:inline-block; margin-top:5px; }
-.extended { display:none; }
-footer { background:#2c5e1a; color:white; padding:20px; text-align:center; font-size:14px; line-height:1.6; margin-top:30px; border-top:3px solid #4CAF50; }
-@media(max-width:768px){ .products-grid { grid-template-columns:1fr; padding:15px; } .product-card img { height:180px; } }
+    :root {
+        --primary-green: #1b4332;
+        --accent-green: #2d6a4f;
+        --bright-green: #4CAF50;
+        --whatsapp-color: #25D366;
+        --light-bg: #f5f7fa;
+    }
+
+    body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background: var(--light-bg); color: #333; line-height: 1.6; }
+    
+    /* Header & Navigation */
+    .header { background:#fff; padding:15px 20px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+    .header .logo { font-weight:900; font-size:22px; color: var(--primary-green); text-decoration: none; letter-spacing: 1px; }
+    .nav { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+    .nav a { margin:5px 12px; text-decoration:none; color: var(--primary-green); font-weight:700; transition:0.3s; font-size: 14px; text-transform: uppercase; }
+    .nav a:hover, .nav a.active { color: var(--bright-green); }
+
+    /* Hero Section */
+    .hero { text-align:center; padding:80px 20px; background: #fff; border-bottom: 1px solid #eee; }
+    .hero h1 { font-size:42px; color: var(--primary-green); margin-bottom:15px; font-weight: 900; }
+    .hero p { font-size:18px; color:#555; max-width:850px; margin:auto; }
+
+    /* Product Grid */
+    .products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:30px; padding:50px 20px; max-width:1300px; margin:auto; }
+    .product-card { background:#fff; border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.06); padding:25px; display: flex; flex-direction: column; transition:0.3s; border: 1px solid #eee; }
+    .product-card:hover { transform:translateY(-10px); box-shadow:0 12px 30px rgba(0,0,0,0.12); }
+    .product-card img { width:100%; height:240px; object-fit:cover; border-radius:10px; margin-bottom:20px; }
+    .product-card h3 { font-size:22px; color: var(--accent-green); margin-bottom:12px; text-align:center; font-weight: 800; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+    .product-card p { font-size:15px; color:#444; margin-bottom:15px; }
+
+    /* Read More Logic */
+    .extended { display:none; font-size: 14px; background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--accent-green); white-space: pre-line; color: #555; }
+    .read-more { color: var(--accent-green); cursor:pointer; font-weight:bold; text-decoration: underline; display:inline-block; margin-bottom: 20px; font-size: 14px; }
+
+    /* Pricing & Buttons */
+    .price { font-size: 22px; font-weight:900; color: var(--primary-green); margin: 10px 0 20px 0; text-align:center; background: #eef5f1; padding: 10px; border-radius: 5px; }
+    .whatsapp-btn { background: var(--whatsapp-color); color:#fff; text-decoration:none; padding:15px; border-radius:10px; display:block; font-weight:bold; text-align:center; transition:0.3s; margin-top: auto; font-size: 16px; }
+    .whatsapp-btn:hover { background:#128C7E; transform: scale(1.02); }
+
+    /* Footer */
+    footer { background: var(--primary-green); color:#d8f3dc; padding:50px 20px; text-align:center; font-size: 15px; margin-top:60px; }
+    footer a { color: #95d5b2; text-decoration: none; font-weight: bold; }
+    footer .social-links { margin: 20px 0; }
+    footer .social-links a { margin: 0 10px; font-size: 16px; }
+    footer .legal-links { margin-top: 20px; font-size: 12px; opacity: 0.7; }
+
+    @media(max-width:768px){ 
+        .header { flex-direction: column; padding: 10px; }
+        .nav { justify-content: center; margin-top: 15px; }
+        .hero h1 { font-size: 30px; }
+        .products-grid { padding: 20px; }
+    }
 </style>
 </head>
 <body>
 
 <header class="header">
-  <div class="logo">LEGEND AGRO FARM</div>
+  <a href="index.html" class="logo">LEGEND AGRO FARM</a>
   <nav class="nav">
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="products.html">Products</a>
     <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="testimonials.html">Testimonials</a>
     <a href="faq.html">FAQ</a>
-    <a href="blog.html">Blog</a>
-    <a href="careers.html">Careers</a>
-    <a href="events.html">Events</a>
-    <a href="certifications.html">Certifications</a>
-    <a href="pricing.html">Pricing</a>
     <a href="contact.html">Contact</a>
-    <a href="sitemap.html">Sitemap</a>
   </nav>
 </header>
 
 <section class="hero">
   <h1>Welcome to Legend AGRO Farm</h1>
-  <p>Legend AGRO Farm provides premium quality planting materials, fertilizers, and expert consultancy to boost farm productivity, profitability, and sustainable agriculture across Nigeria.</p>
+  <p>Providing premium quality planting materials, fertilizers, and expert consultancy to boost farm productivity, profitability, and sustainable agriculture across Nigeria.</p>
 </section>
 
 <section class="products-grid">
 
-<!-- 1. Hybrid Coconut Seedlings -->
 <div class="product-card">
   <img src="images/COCONUT1.JPG" alt="Hybrid Coconut Seedlings">
   <h3>Hybrid Coconut Seedlings</h3>
   <p>High-yield hybrid coconut seedlings (MYD × WAT), fast-growing, disease-resistant, ideal for quality fruits all year.</p>
-  <p class="extended">These hybrid coconut seedlings are carefully bred for maximum productivity and high-quality fruit output. With strong root systems, excellent disease resistance, and adaptability to various soil types, they thrive in both commercial plantations and backyard gardens. Farmers benefit from early fruiting, consistent nut size, high copra and oil content, and minimal pest problems. These seedlings support sustainable farming by promoting soil fertility, water retention, and eco-friendly cultivation practices. They are ideal for intercropping, value-added coconut products (oil, desiccated coconut, coir), and agropreneur ventures, providing steady income and long-term profitability. Cultivation includes optimized spacing, nutrient management, and pest control guidance to ensure uniform growth and healthy trees. The seedlings enable continuous harvests for domestic and industrial markets while contributing to farm biodiversity, soil conservation, and climate-resilient farming. By investing in these hybrids, farmers secure high returns, enhanced marketability, and sustainable agricultural outcomes, ensuring financial stability and efficient land use.</p>
+  <div class="extended">These hybrid coconut seedlings are carefully bred for maximum productivity and high-quality fruit output. With strong root systems, excellent disease resistance, and adaptability to various soil types, they thrive in both commercial plantations and backyard gardens. Farmers benefit from early fruiting, consistent nut size, high copra and oil content, and minimal pest problems. These seedlings support sustainable farming by promoting soil fertility, water retention, and eco-friendly cultivation practices. They are ideal for intercropping, value-added coconut products (oil, desiccated coconut, coir), and agropreneur ventures, providing steady income and long-term profitability. Cultivation includes optimized spacing, nutrient management, and pest control guidance to ensure uniform growth and healthy trees. The seedlings enable continuous harvests for domestic and industrial markets while contributing to farm biodiversity, soil conservation, and climate-resilient farming. By investing in these hybrids, farmers secure high returns, enhanced marketability, and sustainable agricultural outcomes, ensuring financial stability and efficient land use.</div>
   <span class="read-more" onclick="toggleText(this)">Read more</span>
   <div class="price">₦5,000 / seedling</div>
-  <a href="https://wa.me/2348153673415?text=I want to order Hybrid Coconut Seedlings" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  <a href="https://wa.me/2348153673415?text=I want to order Hybrid Coconut Seedlings" target="_blank" class="whatsapp-btn" rel="noopener">Order via WhatsApp</a>
 </div>
 
-<!-- 2. Tenera Oil Palm Seedlings -->
 <div class="product-card">
   <img src="images/OILPALM1.JPG" alt="Tenera Oil Palm Seedlings">
   <h3>Tenera Oil Palm Seedlings</h3>
   <p>Premium Tenera oil palm seedlings, high oil content, pest-resistant, adaptable to different soils for reliable yield.</p>
-  <p class="extended">The Tenera oil palm seedlings are industry-standard for oil production, offering high bunch weight and oil yield. These seedlings are vigorous, pest-resistant, and suitable for smallholder and commercial farms. Proper planting ensures canopy development, efficient nutrient absorption, and long-term productivity. Farmers achieve predictable yields, easier harvesting, and steady income from palm oil. They support sustainable practices, soil fertility, and water conservation. Intercropping opportunities provide additional income while maintaining biodiversity. These seedlings ensure minimal crop loss, high-quality oil production, and efficient farm management. Investment in Tenera seedlings yields financial stability, quick return on investment, and long-term productivity, making them ideal for agribusiness and smallholder farmers seeking reliable and profitable oil palm cultivation.</p>
+  <div class="extended">The Tenera oil palm seedlings are industry-standard for oil production, offering high bunch weight and oil yield. These seedlings are vigorous, pest-resistant, and suitable for smallholder and commercial farms. Proper planting ensures canopy development, efficient nutrient absorption, and long-term productivity. Farmers achieve predictable yields, easier harvesting, and steady income from palm oil. They support sustainable practices, soil fertility, and water conservation. Intercropping opportunities provide additional income while maintaining biodiversity. These seedlings ensure minimal crop loss, high-quality oil production, and efficient farm management. Investment in Tenera seedlings yields financial stability, quick return on investment, and long-term productivity, making them ideal for agribusiness and smallholder farmers seeking reliable and profitable oil palm cultivation.</div>
   <span class="read-more" onclick="toggleText(this)">Read more</span>
   <div class="price">₦1,500 / seedling</div>
-  <a href="https://wa.me/2348153673415?text=I want to order Oil Palm Seedlings" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  <a href="https://wa.me/2348153673415?text=I want to order Oil Palm Seedlings" target="_blank" class="whatsapp-btn" rel="noopener">Order via WhatsApp</a>
 </div>
 
-<!-- 3. Cocoa Nursery Plants -->
 <div class="product-card">
   <img src="images/COCOA1.JPG" alt="Cocoa Nursery Plants">
   <h3>Cocoa Nursery Plants (CCN-51)</h3>
   <p>CCN-51 cocoa seedlings, high yield, disease-resistant, perfect for early fruiting and long-term farm productivity.</p>
-  <p class="extended">*The CCN-51 Cocoa: The Industrial King of High Yield*
+  <div class="extended">*The CCN-51 Cocoa: The Industrial King of High Yield*
 
 ​When it comes to commercial cocoa production, the CCN-51 (Colección Castro Naranjal) is the undisputed leader for large-scale operations. It was developed to solve the two biggest problems in cocoa farming: low yield and disease vulnerability.
 ​If you are looking for a variety that produces more beans per hectare than any other type in the world, the CCN-51 is your primary asset.
 
 ​Features and Benefits
-
-​Explosive Productivity: The CCN-51 is a "high-input, high-output" variety. It is capable of producing several times the yield of traditional varieties, making it the choice for farmers who treat their plantation like a factory.
-
-​Early Fruiting: While traditional cocoa can take 5 years to reach maturity, CCN-51 begins fruiting in as little as 18 to 24 months.
-
-​Fungal Resistance: This variety was specifically bred for its resilience against diseases like Witches’ Broom and Black Pod, which often wipe out entire harvests of more sensitive varieties.
-
-​Consistent Quality: The pods are large, and the beans are uniform, allowing for easier processing and a predictable supply for the chocolate and confectionery industries.
+​- Explosive Productivity: The CCN-51 is a "high-input, high-output" variety. 
+​- Early Fruiting: While traditional cocoa can take 5 years to reach maturity, CCN-51 begins fruiting in as little as 18 to 24 months.
+​- Fungal Resistance: This variety was specifically bred for its resilience against diseases like Witches’ Broom and Black Pod.
+​- Consistent Quality: Large pods and uniform beans for industrial processing.
 
 ​Our Nursery and Selection Process
-​Cocoa is sensitive in its infancy. Our nursery process is focused on creating "shock-resistant" seedlings. At #1,000 per seedling, we ensure that each plant has been hardened off and transitioned from a controlled environment to real-world conditions. We eliminate any seedlings showing signs of genetic stunting or weak grafting, ensuring that the 450 plants you put in your acre are all high-performers.
-
-​Spacing and Land Requirements
-​To achieve the massive yields CCN-51 is famous for, we utilize a 3m x 3m Linear Layout. This density ensures the canopy closes quickly, suppressing weed growth and maintaining the humidity cocoa trees love.
+​At #1,000 per seedling, we ensure that each plant has been hardened off and transitioned from a controlled environment to real-world conditions. 
 
 ​The Math for Your Investment:
-​One Acre: You will require 450 seedlings.
-​One Hectare: You will require 1,111 seedlings.
-​At #1,000 per seedling, your investment per hectare is #1,111,000. While the initial plant count is higher than oil palm or coconut, the speed of your first harvest and the sheer volume of beans produced makes this one of the fastest ROI (Return on Investment) profiles in the agricultural sector.
+​- One Acre: 450 seedlings.
+​- One Hectare: 1,111 seedlings.
+​Investment per hectare: #1,111,000.
 
-​Why CCN-51 is the Investor’s Choice
-​Cocoa is a global commodity with prices dictated by international markets. The CCN-51 is the "high-performance engine" of the cocoa industry.
-​For the Farmer, it means more bags per hectare and less money spent on fungicides. For the Investor, it means a rapid transition from capital expenditure to revenue generation. In a world where cocoa demand is rising and supply is often volatile, owning a high-yield CCN-51 plantation is a position of extreme market strength.
-
-
-Scale Your Wealth with the World’s Most Productive Cocoa
-
-​The era of waiting five years for a harvest is over. The CCN-51 is the variety that transformed the global cocoa landscape, and it is now available to help you dominate your local market. At #1,000 per seedling, you are investing in the most efficient bean-producing machine ever developed.
-​[Button: Order Your CCN-51 Seedlings]
-Quality-assured seedlings. Expert delivery to your farm site..</p>
+​Scale Your Wealth with the World’s Most Productive Cocoa. Quality-assured seedlings. Expert delivery to your farm site.</div>
   <span class="read-more" onclick="toggleText(this)">Read more</span>
   <div class="price">₦1,000 / seedling</div>
-  <a href="https://wa.me/2348153673415?text=I want to order Cocoa Nursery Plants" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  <a href="https://wa.me/2348153673415?text=I want to order Cocoa Nursery Plants" target="_blank" class="whatsapp-btn" rel="noopener">Order via WhatsApp</a>
 </div>
 
-<!-- 4. Hybrid Elephant Giant Plantain Suckers -->
 <div class="product-card">
   <img src="images/PLANTAIN1.JPG" alt="Hybrid Elephant Giant Plantain Suckers">
   <h3>Hybrid Elephant Giant Plantain Suckers</h3>
-  <p>High-quality hybrid plantain suckers, vigorous growth, early fruiting, superior size, ideal for commercial or backyard cultivation.</p>
-  <p class="extended">These plantain suckers provide high productivity with strong pseudostems and uniform fruit bunches. Farmers enjoy early fruiting, minimal pest issues, and adaptability across soil types. Ideal for commercial or backyard farms, they allow efficient harvesting and high market demand. Intercropping improves soil fertility and diversifies income. Selected for disease resistance, robust roots, and consistent growth, these suckers maximize profitability. Plantain byproducts, such as leaves for mulching or composting, further enhance farm value. Proper spacing optimizes sunlight, reduces labor, and increases fruit quality. They are perfect for farmers seeking consistent harvests, top-quality produce, and long-term financial stability.</p>
+  <p>High-quality hybrid plantain suckers, vigorous growth, early fruiting, superior size, ideal for commercial cultivation.</p>
+  <div class="extended">These plantain suckers provide high productivity with strong pseudostems and uniform fruit bunches. Farmers enjoy early fruiting, minimal pest issues, and adaptability across soil types. Ideal for commercial or backyard farms, they allow efficient harvesting and high market demand. Intercropping improves soil fertility and diversifies income. Selected for disease resistance, robust roots, and consistent growth, these suckers maximize profitability. Plantain byproducts, such as leaves for mulching or composting, further enhance farm value. Proper spacing optimizes sunlight, reduces labor, and increases fruit quality. They are perfect for farmers seeking consistent harvests, top-quality produce, and long-term financial stability.</div>
   <span class="read-more" onclick="toggleText(this)">Read more</span>
   <div class="price">₦500 / sucker</div>
-  <a href="https://wa.me/2348153673415?text=I want to order Hybrid Elephant Giant Plantain Suckers" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  <a href="https://wa.me/2348153673415?text=I want to order Hybrid Elephant Giant Plantain Suckers" target="_blank" class="whatsapp-btn" rel="noopener">Order via WhatsApp</a>
 </div>
 
-<!-- 5. Hybrid Dwarf Banana Suckers -->
 <div class="product-card">
   <img src="images/BANANA1.JPG" alt="Hybrid Dwarf Banana Suckers">
   <h3>Hybrid Dwarf Banana Suckers</h3>
   <p>Dwarf banana suckers, early and continuous fruiting, disease-resistant, suitable for small and large-scale plantations.</p>
-  <p class="extended">Dwarf banana suckers allow dense planting, excellent sunlight exposure, and airflow, reducing pests. Continuous fruiting ensures reliable income, while disease resistance lowers input costs. They integrate well into intercropping, enhancing land productivity. Sustainable practices like minimal chemical use and soil preservation ensure high-quality, marketable fruit. Suitable for commercial farms or home gardens, they provide rapid returns and long-term viability. These hybrids thrive in various climates, tolerate different soils, and provide byproducts like leaves for packaging or livestock feed. Efficient harvesting ensures bulk supply to markets, supermarkets, and processing plants, maximizing revenue over multiple harvest cycles.</p>
+  <div class="extended">Dwarf banana suckers allow dense planting, excellent sunlight exposure, and airflow, reducing pests. Continuous fruiting ensures reliable income, while disease resistance lowers input costs. They integrate well into intercropping, enhancing land productivity. Sustainable practices like minimal chemical use and soil preservation ensure high-quality, marketable fruit. Suitable for commercial farms or home gardens, they provide rapid returns and long-term viability. These hybrids thrive in various climates, tolerate different soils, and provide byproducts like leaves for packaging or livestock feed. Efficient harvesting ensures bulk supply to markets, supermarkets, and processing plants, maximizing revenue over multiple harvest cycles.</div>
   <span class="read-more" onclick="toggleText(this)">Read more</span>
   <div class="price">₦500 / sucker</div>
-  <a href="https://wa.me/2348153673415?text=I want to order Hybrid Dwarf Banana Suckers" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  <a href="https://wa.me/2348153673415?text=I want to order Hybrid Dwarf Banana Suckers" target="_blank" class="whatsapp-btn" rel="noopener">Order via WhatsApp</a>
 </div>
 
-<!-- 6. Improved Cassava Stems (TME 419) -->
 <div class="product-card">
   <img src="images/CASSAVA1.JPG" alt="Improved Cassava Stems (TME 419)">
   <h3>Improved Cassava Stems (TME 419)</h3>
   <p>Certified TME 419 cassava stems, high-yielding, disease-resistant, ideal for commercial farms or household gardens.</p>
-  <p class="extended">TME 419 cassava stems offer fast growth, high starch content, and disease resistance. These stems are ideal for small and large-scale cultivation, ensuring consistent yields. They support intercropping, soil fertility improvement, and sustainable farming. Farmers benefit from early maturity, quality roots for processing into garri, flour, or starch, and resilience to common cassava diseases. The variety minimizes losses while enhancing productivity. With proper spacing and agronomic practices, TME 419 maximizes land use efficiency. They are excellent for value-added products, local market supply, and agro-processing, providing income stability. Cultivation supports environmental sustainability by improving soil structure and reducing the need for chemical inputs. Farmers can rely on TME 419 for predictable harvest cycles, high-quality roots, and profitable cassava production, establishing a strong foundation for agro-business growth.</p>
+  <div class="extended">TME 419 cassava stems offer fast growth, high starch content, and disease resistance. These stems are ideal for small and large-scale cultivation, ensuring consistent yields. They support intercropping, soil fertility improvement, and sustainable farming. Farmers benefit from early maturity, quality roots for processing into garri, flour, or starch, and resilience to common cassava diseases. The variety minimizes losses while enhancing productivity. With proper spacing and agronomic practices, TME 419 maximizes land use efficiency. They are excellent for value-added products, local market supply, and agro-processing, providing income stability. Cultivation supports environmental sustainability by improving soil structure and reducing the need for chemical inputs. Farmers can rely on TME 419 for predictable harvest cycles, high-quality roots, and profitable cassava production, establishing a strong foundation for agro-business growth.</div>
   <span class="read-more" onclick="toggleText(this)">Read more</span>
   <div class="price">₦1,500 / bundle</div>
-  <a href="https://wa.me/2348153673415?text=I want to order Improved Cassava Stems" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  <a href="https://wa.me/2348153673415?text=I want to order Improved Cassava Stems" target="_blank" class="whatsapp-btn" rel="noopener">Order via WhatsApp</a>
 </div>
 
-<!-- 7. Pineapple Suckers -->
 <div class="product-card">
   <img src="images/PINEAPPLE1.JPG" alt="Pineapple Suckers">
   <h3>Pineapple Suckers</h3>
-  <p>Healthy pineapple suckers, fast-growing, ideal for commercial farms, multiple cropping, and high-quality fruit production.</p>
-  <p class="extended">Pineapple suckers ensure early fruiting, high sugar content, and uniform fruit size. Suitable for large plantations, smallholder farms, and mixed cropping, they maximize land use efficiency. These suckers are resistant to pests, adaptable to different soil types, and promote sustainable agriculture. They provide excellent returns through fresh fruit sales, juice production, and agro-processing. Proper agronomic practices, including spacing, irrigation, and nutrient management, optimize yield and quality. Pineapple cultivation enhances biodiversity, supports intercropping, and allows byproduct use for animal feed or composting. The suckers’ vigorous growth ensures continuous harvests, financial stability, and profitable farm operations. Farmers gain reliable income streams, efficient farm management, and access to value-added product opportunities, making pineapple cultivation a strategic agribusiness choice.</p>
+  <p>Healthy pineapple suckers, fast-growing, ideal for commercial farms, multiple cropping, and quality fruit production.</p>
+  <div class="extended">Pineapple suckers ensure early fruiting, high sugar content, and uniform fruit size. Suitable for large plantations, smallholder farms, and mixed cropping, they maximize land use efficiency. These suckers are resistant to pests, adaptable to different soil types, and promote sustainable agriculture. They provide excellent returns through fresh fruit sales, juice production, and agro-processing. Proper agronomic practices, including spacing, irrigation, and nutrient management, optimize yield and quality. Pineapple cultivation enhances biodiversity, supports intercropping, and allows byproduct use for animal feed or composting. The suckers’ vigorous growth ensures continuous harvests, financial stability, and profitable farm operations. Farmers gain reliable income streams, efficient farm management, and access to value-added product opportunities, making pineapple cultivation a strategic agribusiness choice.</div>
   <span class="read-more" onclick="toggleText(this)">Read more</span>
   <div class="price">₦400 / sucker</div>
-  <a href="https://wa.me/2348153673415?text=I want to order Pineapple Suckers" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  <a href="https://wa.me/2348153673415?text=I want to order Pineapple Suckers" target="_blank" class="whatsapp-btn" rel="noopener">Order via WhatsApp</a>
 </div>
 
-<!-- 8. Treated Yam Setts -->
 <div class="product-card">
   <img src="images/YAM1.JPG" alt="Treated Yam Setts">
   <h3>Treated Yam Setts</h3>
   <p>Quality treated yam setts, disease-free, high-yielding, ideal for establishing profitable yam farms.</p>
-  <p class="extended">Treated yam setts offer early sprouting, uniform growth, and high tuber yields. Farmers benefit from disease-free planting material, reduced crop loss, and predictable harvests. These setts are perfect for commercial yam production, home gardens, and agro-processing supply chains. Proper planting and management optimize growth, tuber size, and marketable quality. They allow integration with intercropping, soil fertility maintenance, and sustainable farming practices. Yam byproducts, such as peels, can be used for livestock feed or composting, improving farm sustainability. Cultivation of treated setts ensures income security, efficient land use, and consistent production cycles. Farmers can achieve high-quality tubers suitable for sale in local and regional markets, creating profitable opportunities and long-term agricultural growth.</p>
+  <div class="extended">Treated yam setts offer early sprouting, uniform growth, and high tuber yields. Farmers benefit from disease-free planting material, reduced crop loss, and predictable harvests. These setts are perfect for commercial yam production, home gardens, and agro-processing supply chains. Proper planting and management optimize growth, tuber size, and marketable quality. They allow integration with intercropping, soil fertility maintenance, and sustainable farming practices. Yam byproducts, such as peels, can be used for livestock feed or composting, improving farm sustainability. Cultivation of treated setts ensures income security, efficient land use, and consistent production cycles. Farmers can achieve high-quality tubers suitable for sale in local and regional markets, creating profitable opportunities and long-term agricultural growth.</div>
   <span class="read-more" onclick="toggleText(this)">Read more</span>
   <div class="price">₦700 / sett</div>
-  <a href="https://wa.me/2348153673415?text=I want to order Treated Yam Setts" target="_blank" class="whatsapp-btn">Order via WhatsApp</a>
+  <a href="https://wa.me/2348153673415?text=I want to order Treated Yam Setts" target="_blank" class="whatsapp-btn" rel="noopener">Order via WhatsApp</a>
 </div>
 
 </section>
 
 <footer>
-Legend AGRO Farm | Call: 081 5367 3415 | WhatsApp: +2348153673415 | Email: ayotundesamuel317@gmail.com<br>
-Follow us on <a href="https://www.facebook.com/profile.php?id=61578922808940&mibextid=ZbWKwL" target="_blank" style="color:#fff;">Facebook</a>, <a href="https://youtube.com/@legendagrofarm?si=O8nowKQ9mHDewav2" target="_blank" style="color:#fff;">YouTube</a>, <a href="https://www.instagram.com/legendagrofarm?igsh=dDliNXdwNWxiYnBu" target="_blank" style="color:#fff;">Instagram</a>, <a href="https://www.tiktok.com/@legend.agrofarm" target="_blank" style="color:#fff;">TikTok</a>
+  <strong>LEGEND AGRO FARM</strong><br>
+  Call: 081 5367 3415 | WhatsApp: <a href="https://wa.me/2348153673415">+2348153673415</a><br>
+  Email: ayotundesamuel317@gmail.com
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/profile.php?id=61578922808940" target="_blank" rel="noopener">Facebook</a> | 
+    <a href="https://youtube.com/@legendagrofarm" target="_blank" rel="noopener">YouTube</a> | 
+    <a href="https://www.instagram.com/legendagrofarm" target="_blank" rel="noopener">Instagram</a> | 
+    <a href="https://www.tiktok.com/@legend.agrofarm" target="_blank" rel="noopener">TikTok</a>
+  </div>
+
+  <div class="legal-links">
+    <a href="gallery.html">Gallery</a> | <a href="blog.html">Blog</a> | <a href="careers.html">Careers</a> | <a href="certifications.html">Certifications</a> | <a href="sitemap.html">Sitemap</a>
+  </div>
 </footer>
 
 <script>

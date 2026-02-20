@@ -1,44 +1,320 @@
-*The CCN-51 Cocoa Planting Guide: High-Density Management* 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legend AGRO Farm — Premium Seedlings & Materials</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #1b4332;
+        --accent: #2d6a4f;
+        --highlight: #4CAF50;
+        --light: #f8f9fa;
+        --white: #ffffff;
+        --whatsapp: #25D366;
+    }
 
-​The CCN-51 is a high-performance asset. To see a return on your investment within 24 months, you must follow these technical protocols from day one.
+    body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background: var(--light); color: #333; scroll-behavior: smooth; }
+    
+    /* Sticky Navigation */
+    .header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1001; }
+    .logo { font-weight: 900; font-size: 20px; color: var(--primary); text-decoration: none; }
+    .nav a { margin-left: 20px; text-decoration: none; color: var(--primary); font-weight: 700; font-size: 14px; text-transform: uppercase; }
 
-​Phase 1: Site Preparation and Shade Management
+    /* Product Navigation Bar */
+    .product-tabs { 
+        display: flex; 
+        background: var(--primary); 
+        padding: 5px; 
+        position: sticky; 
+        top: 60px; 
+        z-index: 1000; 
+        overflow-x: auto; 
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    .tab-btn { background: none; border: none; color: #fff; padding: 12px 20px; cursor: pointer; font-weight: bold; opacity: 0.6; transition: 0.3s; font-size: 13px; }
+    .tab-btn.active { opacity: 1; border-bottom: 3px solid var(--highlight); }
 
-​Soil Requirements: Cocoa thrives in deep, well-drained soil rich in organic matter. Ensure the site has good water retention but zero waterlogging.
+    .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+    .product-section { display: none; animation: fadeIn 0.4s ease-in-out; }
+    .product-section.active { display: block; }
 
-​Temporary Shade: Young cocoa seedlings are sensitive to direct, harsh sunlight. We recommend planting temporary shade crops like plantains or bananas six months before the cocoa. This protects the young CCN-51 and provides a secondary income stream.
+    /* Product Grid Layout */
+    .grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; margin-bottom: 40px; }
+    
+    /* 5-Image Gallery System */
+    .image-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .image-gallery img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid #ddd; }
+    .main-img { grid-column: span 4; height: 400px !important; }
 
-​Phase 2: Precise Linear Layout
+    .content-box { background: var(--white); padding: 35px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+    h1 { font-size: 36px; font-weight: 900; color: var(--primary); margin-top: 0; margin-bottom: 15px; }
+    h2 { color: var(--primary); border-left: 5px solid var(--highlight); padding-left: 15px; margin-top: 40px; }
+    
+    .price-tag { font-size: 30px; font-weight: 900; color: var(--accent); margin: 25px 0; display: inline-block; }
+    .investment-math { background: #f0f7f2; padding: 25px; border-radius: 12px; border: 1px dashed var(--accent); margin: 25px 0; }
+    
+    /* Technical Guides & FAQ */
+    .guide-box { background: #fff; border: 1px solid #e0e0e0; padding: 30px; border-radius: 15px; margin-top: 40px; }
+    .phase { margin-bottom: 30px; }
+    .phase h4 { color: var(--highlight); margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; }
+    
+    .faq-item { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #ddd; }
+    .faq-item strong { color: var(--primary); display: block; margin-bottom: 8px; font-size: 16px; }
 
-​The 3m x 3m Grid: Accuracy is vital. Use a lining rope to ensure every tree is exactly 3 meters from its neighbour in a straight line. This creates the "tunnel" effect needed for air circulation and easy harvesting.
+    .order-btn { background: var(--whatsapp); color: #fff; text-decoration: none; padding: 20px; border-radius: 12px; display: block; text-align: center; font-weight: 900; font-size: 20px; transition: 0.3s; margin-top: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+    .order-btn:hover { transform: translateY(-3px); background: #128C7E; }
 
-​The Hole: Dig holes of 40cm x 40cm x 40cm.
+    footer { background: var(--primary); color: #fff; padding: 60px 20px; text-align: center; margin-top: 80px; }
 
-​Soil Priming: Mix the excavated topsoil with 5kg of cured poultry manure and 200g of Phosphate fertiliser. Fill the hole back up slightly so the seedling sits at the correct height.
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } .main-img { height: 300px !important; } }
+</style>
+</head>
+<body>
 
-​Phase 3: The Transplanting Technique
+<header class="header">
+    <a href="index.html" class="logo">LEGEND AGRO FARM</a>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
-​Handle with Care: The CCN-51 has a sensitive taproot. Slice the polybag vertically and remove it without shaking or breaking the soil ball.
+<div class="product-tabs">
+    <button class="tab-btn active" onclick="openProduct(event, 'coconut')">Dwarf Coconut</button>
+    <button class="tab-btn" onclick="openProduct(event, 'oilpalm')">Tenera Oil Palm</button>
+    <button class="tab-btn" onclick="openProduct(event, 'cocoa')">CCN-51 Cocoa</button>
+    <button class="tab-btn" onclick="openProduct(event, 'plantain')">Plantain</button>
+    <button class="tab-btn" onclick="openProduct(event, 'banana')">Dwarf Banana</button>
+    <button class="tab-btn" onclick="openProduct(event, 'cassava')">Cassava (TME 419)</button>
+    <button class="tab-btn" onclick="openProduct(event, 'pineapple')">Pineapple</button>
+    <button class="tab-btn" onclick="openProduct(event, 'yam')">Treated Yam</button>
+</div>
 
-​Setting the Plant: Place the seedling so the soil level of the bag matches the ground level. Firm the soil around it to remove air pockets that could cause root rot.
+<div class="container">
 
-​Timing: Transplant only during the cool of the morning or late afternoon to minimise moisture loss and heat stress.
+    <section id="coconut" class="product-section active">
+        <div class="grid-2">
+            <div class="image-gallery">
+                <img src="images/COCONUT1.JPG" class="main-img">
+                <img src="images/COCONUT2.JPG"> <img src="images/COCONUT3.JPG">
+                <img src="images/COCONUT4.JPG"> <img src="images/COCONUT5.JPG">
+            </div>
+            <div class="content-box">
+                <h1>Dwarf Wax 1 Coconut</h1>
+                <p>Investing in a coconut plantation is a marathon, not a sprint, but the Dwarf Wax 1 variety is designed to get you to the finish line faster and with a much higher yield. This isn't just another seedling; it is a precision-engineered agricultural asset for the serious investor.</p>
+                <div class="price-tag">₦5,000 / Seedling</div>
+                <div class="investment-math">
+                    <strong>Investment Math:</strong><br>
+                    • One Acre: 64 seedlings (8m x 8m)<br>
+                    • One Hectare: 156 seedlings
+                </div>
+                <a href="https://wa.me/2348153673415?text=Order Dwarf Wax 1 Coconut" class="order-btn">Order Your Seedlings Now</a>
+            </div>
+        </div>
+        <div class="content-box">
+            <h2>The Dwarf Wax 1 Advantage</h2>
+            <p>Precocious Fruiting: Expect your first harvest within 2.5 to 3 years. Physical Stature: Shorter height makes pest control safer. High Yield Density: Bred for "wax" quality meat sought after by industries.</p>
+            <div class="guide-box">
+                <h3>Planting Guide</h3>
+                <div class="phase"><h4>Phase 1: Preparation</h4>Staking at 8m x 8m spacing. Dig holes 60cm x 60cm x 60cm.</div>
+                <div class="phase"><h4>Phase 2: Soil</h4>Mix topsoil with 10kg cured manure. Fill hole halfway before transplanting.</div>
+                <div class="phase"><h4>Phase 3: Planting</h4>Remove polybag carefully. Nut should be slightly covered or level with surface.</div>
+            </div>
+            <h3>F.A.Q</h3>
+            <div class="faq-item"><strong>Why pay #5,000?</strong> You are paying for genetic certainty and saving 5 years of waiting time compared to tall varieties.</div>
+            <div class="faq-item"><strong>Can I intercrop?</strong> Yes, the 8m spacing allows for pineapples or peppers during the first 3 years.</div>
+        </div>
+    </section>
 
-​Phase 4: The First 24 Months (The Growth Phase)
+    <section id="oilpalm" class="product-section">
+        <div class="grid-2">
+            <div class="image-gallery">
+                <img src="images/OILPALM1.JPG" class="main-img">
+                <img src="images/OILPALM2.JPG"> <img src="images/OILPALM3.JPG">
+                <img src="images/OILPALM4.JPG"> <img src="images/OILPALM5.JPG">
+            </div>
+            <div class="content-box">
+                <h1>Tenera Oil Palm Hybrid</h1>
+                <p>The Tenera is a high-performance hybrid—a cross between Dura and Pisifera—engineered specifically to maximize oil extraction rates. It is built for speed and industrial volume.</p>
+                <div class="price-tag">₦1,500 / Seedling</div>
+                <div class="investment-math">
+                    <strong>Investment Math:</strong><br>
+                    • One Acre: 60 seedlings (9m x 9m Triangular)<br>
+                    • One Hectare: 150 seedlings
+                </div>
+                <a href="https://wa.me/2348153673415?text=Order Tenera Oil Palm" class="order-btn">Secure Your Seedlings Now</a>
+            </div>
+        </div>
+        <div class="content-box">
+            <h2>Industrial High-Output</h2>
+            <p>High Extraction Rate: Yields more Crude Palm Oil (CPO) per ton of fruit. Early Maturity: Fruiting begins within 3 years under good management.</p>
+            <div class="guide-box">
+                <h3>Technical Guide</h3>
+                <div class="phase"><h4>Step 1: Layout</h4>9m x 9m Triangular layout for maximum sunlight penetration.</div>
+                <div class="phase"><h4>Step 2: Transplant</h4>Slice polybag vertically. Ensure the collar is level with the ground surface.</div>
+                <div class="phase"><h4>Step 3: Care</h4>Mulch with empty fruit bunches. Perform castration in years 2-3 to build trunk strength.</div>
+            </div>
+        </div>
+    </section>
 
-​Nutrition: The CCN-51 is a "hungry" variety. Because it grows and fruits so fast, it requires a strict fertilisation schedule. Apply NPK in small, frequent doses rather than one large application.
+    <section id="cocoa" class="product-section">
+        <div class="grid-2">
+            <div class="image-gallery">
+                <img src="images/COCOA1.JPG" class="main-img">
+                <img src="images/COCOA2.JPG"> <img src="images/COCOA3.JPG">
+                <img src="images/COCOA4.JPG"> <img src="images/COCOA5.JPG">
+            </div>
+            <div class="content-box">
+                <h1>CCN-51 Industrial Cocoa</h1>
+                <p>The undisputed leader for large-scale operations. Developed to solve low yield and disease vulnerability. It is the high-performance engine of the modern cocoa industry.</p>
+                <div class="price-tag">₦1,000 / Seedling</div>
+                <div class="investment-math">
+                    <strong>Investment Math:</strong><br>
+                    • One Acre: 450 seedlings (3m x 3m Grid)<br>
+                    • One Hectare: 1,111 seedlings
+                </div>
+                <a href="https://wa.me/2348153673415?text=Order CCN-51 Cocoa" class="order-btn">Order Your CCN-51 Seedlings</a>
+            </div>
+        </div>
+        <div class="content-box">
+            <h2>The Industrial King</h2>
+            <p>Explosive Productivity: High-input, high-output variety. Early Fruiting: Harvest in 18 to 24 months. Disease Resistant: Bred for Witches’ Broom and Black Pod resilience.</p>
+            <div class="guide-box">
+                <h3>Management Protocol</h3>
+                <div class="phase"><h4>Phase 1: Shade</h4>Plant plantains 6 months before cocoa to provide temporary shade.</div>
+                <div class="phase"><h4>Phase 2: Spacing</h4>3m x 3m Linear Layout ensures canopy closure by year 3.</div>
+                <div class="phase"><h4>Phase 3: Nutrition</h4>Requires strict NPK fertilization due to rapid growth and high bean production.</div>
+            </div>
+        </div>
+    </section>
 
-​Pruning: This is the most important step for CCN-51. You must prune to maintain a "single stem" for the first 50-60cm before it branches. Pruning ensures the energy goes into fruit production and keeps the tree at a manageable height.
+    <section id="plantain" class="product-section">
+        <div class="grid-2">
+            <div class="image-gallery">
+                <img src="images/PLANTAIN1.JPG" class="main-img">
+                <img src="images/PLANTAIN2.JPG"> <img src="images/PLANTAIN3.JPG">
+                <img src="images/PLANTAIN4.JPG"> <img src="images/PLANTAIN5.JPG">
+            </div>
+            <div class="content-box">
+                <h1>Elephant Giant Plantain</h1>
+                <p>High-quality hybrid plantain suckers offering vigorous growth and superior bunch size. Ideal for commercial or backyard cultivation.</p>
+                <div class="price-tag">₦500 / Sucker</div>
+                <a href="https://wa.me/2348153673415?text=Order Plantain Suckers" class="order-btn">Order Plantain Suckers</a>
+            </div>
+        </div>
+        <div class="content-box">
+            <p>These plantain suckers provide high productivity with strong pseudostems and uniform fruit bunches. Farmers enjoy early fruiting and minimal pest issues. Proper spacing optimizes sunlight and reduces labor.</p>
+        </div>
+    </section>
 
-​Weed Control: In a 3m x 3m layout, you must keep the "cocoa floor" clean. Once the canopy closes (around year 3), the shade will naturally prevent most weed growth.
+    <section id="banana" class="product-section">
+        <div class="grid-2">
+            <div class="image-gallery">
+                <img src="images/BANANA1.JPG" class="main-img">
+                <img src="images/BANANA2.JPG"> <img src="images/BANANA3.JPG">
+                <img src="images/BANANA4.JPG"> <img src="images/BANANA5.JPG">
+            </div>
+            <div class="content-box">
+                <h1>Hybrid Dwarf Banana</h1>
+                <p>Dwarf banana suckers allowing dense planting, excellent sunlight exposure, and early continuous fruiting.</p>
+                <div class="price-tag">₦500 / Sucker</div>
+                <a href="https://wa.me/2348153673415?text=Order Banana Suckers" class="order-btn">Order Banana Suckers</a>
+            </div>
+        </div>
+        <div class="content-box">
+            <p>Continuous fruiting ensures reliable income while disease resistance lowers input costs. Suitable for commercial farms or home gardens, providing rapid returns and long-term viability.</p>
+        </div>
+    </section>
 
-​Phase 5: Pest and Disease Monitoring
+    <section id="cassava" class="product-section">
+        <div class="grid-2">
+            <div class="image-gallery">
+                <img src="images/CASSAVA1.JPG" class="main-img">
+                <img src="images/CASSAVA2.JPG"> <img src="images/CASSAVA3.JPG">
+                <img src="images/CASSAVA4.JPG"> <img src="images/CASSAVA5.JPG">
+            </div>
+            <div class="content-box">
+                <h1>Cassava Stems (TME 419)</h1>
+                <p>Certified TME 419 cassava stems offering fast growth, high starch content, and extreme disease resistance.</p>
+                <div class="price-tag">₦1,500 / Bundle</div>
+                <a href="https://wa.me/2348153673415?text=Order Cassava Stems" class="order-btn">Order Cassava Stems</a>
+            </div>
+        </div>
+        <div class="content-box">
+            <p>Ideal for quality roots for processing into garri, flour, or starch. Farmers benefit from early maturity and high starch yields, establishing a strong foundation for agro-business growth.</p>
+        </div>
+    </section>
 
-​While CCN-51 is resilient, you must stay vigilant.
-​Mirids: Watch for these sap-sucking insects during the dry season.
+    <section id="pineapple" class="product-section">
+        <div class="grid-2">
+            <div class="image-gallery">
+                <img src="images/PINEAPPLE1.JPG" class="main-img">
+                <img src="images/PINEAPPLE2.JPG"> <img src="images/PINEAPPLE3.JPG">
+                <img src="images/PINEAPPLE4.JPG"> <img src="images/PINEAPPLE5.JPG">
+            </div>
+            <div class="content-box">
+                <h1>Healthy Pineapple Suckers</h1>
+                <p>Fast-growing suckers ensuring early fruiting and high sugar content. Suitable for large plantations and mixed cropping.</p>
+                <div class="price-tag">₦400 / Sucker</div>
+                <a href="https://wa.me/2348153673415?text=Order Pineapple Suckers" class="order-btn">Order Pineapple Suckers</a>
+            </div>
+        </div>
+        <div class="content-box">
+            <p>Pineapple cultivation enhances biodiversity and allows byproduct use for animal feed. These suckers are resistant to pests and adaptable to various soil types.</p>
+        </div>
+    </section>
 
-​Black Pod: Even with resistance, ensure good drainage and airflow through proper pruning to minimise fungal pressure during heavy rains.
+    <section id="yam" class="product-section">
+        <div class="grid-2">
+            <div class="image-gallery">
+                <img src="images/YAM1.JPG" class="main-img">
+                <img src="images/YAM2.JPG"> <img src="images/YAM3.JPG">
+                <img src="images/YAM4.JPG"> <img src="images/YAM5.JPG">
+            </div>
+            <div class="content-box">
+                <h1>Treated Yam Setts</h1>
+                <p>Quality disease-free yam setts offering early sprouting and uniform growth for profitable yam farms.</p>
+                <div class="price-tag">₦700 / Sett</div>
+                <a href="https://wa.me/2348153673415?text=Order Yam Setts" class="order-btn">Order Treated Yam Setts</a>
+            </div>
+        </div>
+        <div class="content-box">
+            <p>Perfect for commercial yam production. Farmers benefit from reduced crop loss and predictable harvests. High-quality tubers suitable for local and regional markets.</p>
+        </div>
+    </section>
 
-​The Goal: Early Canopy Closure
+</div>
 
-​By following this guide, your CCN-51 trees will touch branches by the end of Year 3. This "canopy closure" creates a self-sustaining microclimate that protects the soil, retains moisture, and signals the beginning of your peak production years.
+<footer>
+    <strong>LEGEND AGRO FARM</strong><br>
+    Providing High-Performance Agricultural Foundations.<br>
+    Call: 081 5367 3415 | Email: ayotundesamuel317@gmail.com
+</footer>
+
+<script>
+function openProduct(evt, productName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("product-section");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(productName).style.display = "block";
+    document.getElementById(productName).classList.add("active");
+    evt.currentTarget.className += " active";
+    window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
